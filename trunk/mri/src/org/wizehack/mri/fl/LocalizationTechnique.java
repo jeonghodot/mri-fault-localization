@@ -1,7 +1,7 @@
 package org.wizehack.mri.fl;
 
 
-public abstract class Localizer {
+public abstract class LocalizationTechnique {
 	private int totalPassed;
 	private int totalFailed;
 	
@@ -9,7 +9,7 @@ public abstract class Localizer {
 	private int passed;
 	private int failed;
 		
-	public Localizer(int totalPassed, int totalFailed, String techniqueName){
+	public LocalizationTechnique(int totalPassed, int totalFailed, String techniqueName){
 		super();
 		this.totalPassed = totalPassed;
 		this.totalFailed = totalFailed;

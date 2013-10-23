@@ -8,7 +8,7 @@ import org.wizehack.mri.Test.TestCase;
 import org.wizehack.mri.Test.TestSuite;
 import org.wizehack.mri.code.CodeLoader;
 import org.wizehack.mri.code.JavaCodeLoader;
-import org.wizehack.mri.fl.Localizer;
+import org.wizehack.mri.fl.LocalizationTechnique;
 import org.wizehack.mri.io.FileIO;
 import org.wizehack.mri.repo.Code;
 import org.wizehack.mri.repo.DataManager;
@@ -18,20 +18,70 @@ import org.wizehack.mri.repo.Result;
 import org.wizehack.mri.repo.Spectrum;
 import org.wizehack.mri.repo.SuspiciousnessMap;
 
-import com.mongodb.DBObject;
 
-
-public class SFL {
+public abstract class SFL {
 	private DataManager dManager;
+	private String pName;
+	private String ip;
+	private String sourceFolder;
+	private String exportFile;
+
+	public abstract TestSuite setTestResult();
 	
-	public DataManager setUpProject(String pName, String ip, String sourceFolder) {
+	public SFL(String projectName, String repositoryIp, String sourceFolder, String exportFile) {
+		this.pName = projectName;
+		this.ip = repositoryIp;
+		this.sourceFolder = sourceFolder;
+		this.exportFile = exportFile;
+	}
+	
+	public DataManager setUpProject() {
+		System.out.println("Setting up porject...");
+		System.out.println("Project Name: " + this.pName);
+		System.out.println("Repository IP: " + this.ip);
+		System.out.println("Source Folder: " + this.sourceFolder);
+		System.out.println("Report File: " + this.exportFile);
 		
-		this.dManager = new DataManager(pName, ip);
+		if(this.pName == null || this.ip == null || this.sourceFolder == null || this.exportFile == null){
+			try {
+				throw new Exception("Invalid Parameters: projectName, repositoryIP, sourceFolder");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		this.dManager = new DataManager(this.pName, this.ip);
 		CodeLoader cLoader = new JavaCodeLoader();
-		List<Code> statements = cLoader.getStatements(sourceFolder);
+		List<Code> statements = cLoader.getStatements(this.sourceFolder);
 		
 		dManager.insertCode(statements);
 		return dManager;
+	}
+	
+	public void debug(LocalizationTechnique technique){
+		//insert code to repository 
+		System.out.println("insert code to repository ");
+		DataManager dManager = this.setUpProject();
+		TestSuite testSuite = this.setTestResult();
+		
+		//obtain test result
+		System.out.println("obtain test result");
+		this.probe(sourceFolder, testSuite);
+
+//		dManager.viewDocuments("test");		
+		
+		//map reduce
+		dManager.reduceCoverageMap();
+		
+		//compute suspiciousness
+		this.computeSuspiciousness(technique);
+		
+		//documentation
+		
+		this.exportToTextDoc(this.exportFile);
+		System.out.println("completed ");
+		
 	}
 	
 	public void probe(String sourceFolder, TestSuite testSuite) {
@@ -49,7 +99,7 @@ public class SFL {
 		System.out.println("All probers are terminated");
 	}
 	
-	public void computeSuspiciousness(Localizer localizer){
+	public void computeSuspiciousness(LocalizationTechnique technique){
 		List<Spectrum> spectrumList = dManager.getStatistics();
 		List<Code> codeList = dManager.getStatements();
 		boolean found = false; 
@@ -61,9 +111,9 @@ public class SFL {
 				Spectrum spectrum = spectrumList.get(j);
 				if(code.getStatementId() == spectrum.getStatementId()){
 					
-					localizer.setPassed(spectrum.getPassed());
-					localizer.setFailed(spectrum.getFailed());
-					double Suspiciousness = localizer.getSuspiciousness();
+					technique.setPassed(spectrum.getPassed());
+					technique.setFailed(spectrum.getFailed());
+					double Suspiciousness = technique.getSuspiciousness();
 					SuspiciousnessMap suspiciousnessMap = new SuspiciousnessMap();
 					
 					suspiciousnessMap.setStatementId(spectrum.getStatementId());
@@ -109,4 +159,5 @@ public class SFL {
 		}
 		fileIO.write(doc);
 	}
+
 }
