@@ -55,18 +55,18 @@ public abstract class SFL {
 		CodeLoader cLoader = new JavaCodeLoader();
 		List<Code> statements = cLoader.getStatements(this.sourceFolder);
 		
+		System.out.println("Inserting code to repository ");
 		dManager.insertCode(statements);
 		return dManager;
 	}
 	
 	public void debug(LocalizationTechnique technique){
 		//insert code to repository 
-		System.out.println("insert code to repository ");
 		DataManager dManager = this.setUpProject();
 		TestSuite testSuite = this.setTestResult();
 		
 		//obtain test result
-		System.out.println("obtain test result");
+		System.out.println("Obtaining test result");
 		this.probe(sourceFolder, testSuite);
 
 //		dManager.viewDocuments("test");		
@@ -103,7 +103,7 @@ public abstract class SFL {
 		List<Spectrum> spectrumList = dManager.getStatistics();
 		List<Code> codeList = dManager.getStatements();
 		boolean found = false; 
-		
+		System.out.println("Inserting suspiciousness");
 		for(int i=0; i<codeList.size(); i++){
 			Code code = codeList.get(i);
 			
