@@ -1,6 +1,6 @@
 package org.wizehack.mri.fl;
 
-public class HeuristicIII extends Localizer{
+public class HeuristicIII extends LocalizationTechnique{
 
 	public HeuristicIII(int totalPassed, int totalFailed, String techniqueName) {
 		super(totalPassed, totalFailed, techniqueName);

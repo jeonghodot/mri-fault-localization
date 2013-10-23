@@ -1,6 +1,6 @@
 package org.wizehack.mri.fl;
 
-public class Tarantula extends Localizer {
+public class Tarantula extends LocalizationTechnique {
 
 	
 	public Tarantula(int totalPassed, int totalFailed, String techniqueName) {
