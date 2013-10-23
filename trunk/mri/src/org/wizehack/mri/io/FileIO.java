@@ -1,5 +1,6 @@
 package org.wizehack.mri.io;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -15,6 +16,8 @@ public class FileIO {
 
 	public void setOutFile(String outFile) {
 		this.outFile = outFile;
+		File file = new File(outFile);
+		file.delete();
 	}
 
 	public void write(List<String> content){
