@@ -4,7 +4,6 @@ public class DStar extends LocalizationTechnique {
 
 	public DStar(int totalPassed, int totalFailed, String techniqueName) {
 		super(totalPassed, totalFailed, techniqueName);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.wizehack.mri.Test.TestCase;
-import org.wizehack.mri.code.CodeLoader;
-import org.wizehack.mri.code.JavaCodeLoader;
-import org.wizehack.mri.config.Configurator;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
