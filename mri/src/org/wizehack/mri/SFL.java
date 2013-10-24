@@ -160,4 +160,13 @@ public abstract class SFL {
 		fileIO.write(doc);
 	}
 
+
+	public String getCoverageFileName(String filePath) {
+		int start = filePath.lastIndexOf("/");
+		start = start+1;
+		int end = filePath.lastIndexOf(".xml");
+
+		String name = filePath.substring(start, end);
+		return name;
+	}
 }

@@ -26,16 +26,20 @@ public class MRIDemo extends SFL{
 		TestSuite testSuite = new Group();
 		testSuite.setId(id);
 		
-		String covDir = "/media/volume/workspace/jGraphX/Coverage";
+		String covDir = "/home/wizehack/develop/workspace/jGraphX/Coverage";
 		FileListReader fileListReader = new FileListReader();
 		fileListReader.setExtensionType("xml");
 		List<String> fList = fileListReader.readFiles(new File(covDir));
 
 		for(int i=0; i<fList.size(); i++){
-			int tcId = i+1;
+
+			String name = fList.get(i);
+			name = super.getCoverageFileName(name);
+			
+			int tcId = new Integer(name);
 			TestCase testCase = new TestCase();
 			testCase.setTcId(tcId);
-			
+
 			if(tcId == 1 || tcId == 2 || tcId == 3){
 				testCase.setPassed(false);
 			} else {
@@ -48,12 +52,12 @@ public class MRIDemo extends SFL{
 		
 		return testSuite;
 	}
+
 	
 	public static void main(String[] args) {
-//		SFL sfl = new SFL();
 		String pName = "CodeTest";
 		String ip = "127.0.0.1";
-		String sourceFolder = "/media/volume/workspace/jGraphX/src";
+		String sourceFolder = "/home/wizehack/develop/workspace/jGraphX/src";
 		String expFile = "/home/wizehack/exp/docFile.csv";
 
 		MRIDemo demo = new MRIDemo(pName, ip, sourceFolder, expFile);
