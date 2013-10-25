@@ -11,8 +11,12 @@ public class DStar extends LocalizationTechnique {
 		int ncf = super.getFailed();
 		int nuf = super.getTotalFailed() - ncf;
 		int ncs = super.getPassed();
-		
-		double sus = (ncf * ncf) / (nuf + ncs);
+		double sus = 0;
+		int numerator = nuf + ncs;
+		if(numerator == 0)
+			sus = 0;
+		else
+			sus = (ncf * ncf) / (numerator);
 		return sus;
 	}
 
