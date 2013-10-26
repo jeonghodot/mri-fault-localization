@@ -137,7 +137,7 @@ public class Experiment extends SFL{
 		String sourceFolder = "/home/wizehack/develop/workspace/jGraphX/src";
 
 		//TARGET
-		tarantula(ip, sourceFolder);
+//		tarantula(ip, sourceFolder);
 
 		dStar(ip, sourceFolder);
 		
