@@ -101,7 +101,6 @@ public class Experiment extends SFL{
 
 		} else {
 			covDir = "/home/wizehack/exp/mri/55/8";
-
 		}
 		
 		FileListReader fileListReader = new FileListReader();
@@ -118,7 +117,14 @@ public class Experiment extends SFL{
 			TestCase testCase = new TestCase();
 			testCase.setTcId(tcId);
 
-			if(tcId == 1 || tcId == 2 || tcId == 3){
+			if(tcId == 12 || 
+					tcId == 29 || 
+					tcId == 34 ||
+					tcId == 47 ||
+					tcId == 70 ||
+					tcId == 87 ||
+					tcId == 88 ||
+					tcId == 89 ){
 				testCase.setPassed(false);
 			} else {
 				testCase.setPassed(true);
@@ -137,12 +143,12 @@ public class Experiment extends SFL{
 		String sourceFolder = "/home/wizehack/develop/workspace/jGraphX/src";
 
 		//TARGET
-//		tarantula(ip, sourceFolder);
+		tarantula(ip, sourceFolder);
 
 		dStar(ip, sourceFolder);
 		
 		//MRI METHODOLOGY
-		mriTarantula(ip, sourceFolder);
+//		mriTarantula(ip, sourceFolder);
 	}
 
 	private static void mriTarantula(String ip, String sourceFolder) {
