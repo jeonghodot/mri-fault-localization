@@ -99,8 +99,10 @@ public class Experiment extends SFL{
 		} else if (this.TYPE == 26) {
 			covDir = "/home/wizehack/exp/mri/55/7";
 
-		} else {
+		} else if (this.TYPE == 27){
 			covDir = "/home/wizehack/exp/mri/55/8";
+		} else {
+			System.out.println("error!!!! >>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		}
 		
 		FileListReader fileListReader = new FileListReader();
@@ -143,12 +145,12 @@ public class Experiment extends SFL{
 		String sourceFolder = "/home/wizehack/develop/workspace/jGraphX/src";
 
 		//TARGET
-		tarantula(ip, sourceFolder);
+//		tarantula(ip, sourceFolder);
 
 		dStar(ip, sourceFolder);
 		
 		//MRI METHODOLOGY
-//		mriTarantula(ip, sourceFolder);
+		mriTarantula(ip, sourceFolder);
 	}
 
 	private static void mriTarantula(String ip, String sourceFolder) {
@@ -218,63 +220,82 @@ public class Experiment extends SFL{
 		Experiment demo_mri_55_7 = new Experiment(pName3_55_7, ip, sourceFolder, expFile3_55_7);
 		Experiment demo_mri_55_8 = new Experiment(pName3_55_8, ip, sourceFolder, expFile3_55_8);
 
-		LocalizationTechnique mri_tarantula = new Tarantula(3,3,"mri_tarantula");
+		/*
+		LocalizationTechnique mri_tarantula_30 = new Tarantula(11,1,"mri_tarantula");
 		demo_mri_30.TYPE = 9;
 		demo_mri_30.debug(mri_tarantula);
-		
+		*/
+		LocalizationTechnique mri_tarantula_35_1 = new Tarantula(43,1,"mri_tarantula");
 		demo_mri_35_1.TYPE = 10;
-		demo_mri_35_1.debug(mri_tarantula);
+		demo_mri_35_1.debug(mri_tarantula_35_1);
 		
+		LocalizationTechnique mri_tarantula_35_2 = new Tarantula(43,1,"mri_tarantula");
 		demo_mri_35_2.TYPE = 11;
-		demo_mri_35_2.debug(mri_tarantula);
+		demo_mri_35_2.debug(mri_tarantula_35_2);
 		
+		LocalizationTechnique mri_tarantula_35_3 = new Tarantula(43,1,"mri_tarantula");
 		demo_mri_35_3.TYPE = 12;
-		demo_mri_35_3.debug(mri_tarantula);
+		demo_mri_35_3.debug(mri_tarantula_35_3);
 		
+		LocalizationTechnique mri_tarantula_40_1 = new Tarantula(81,1,"mri_tarantula");
 		demo_mri_40_1.TYPE = 13;
-		demo_mri_40_1.debug(mri_tarantula);
+		demo_mri_40_1.debug(mri_tarantula_40_1);
 		
+		LocalizationTechnique mri_tarantula_40_2 = new Tarantula(81,1,"mri_tarantula");
 		demo_mri_40_2.TYPE = 14;
-		demo_mri_40_2.debug(mri_tarantula);
+		demo_mri_40_2.debug(mri_tarantula_40_2);
 		
+		LocalizationTechnique mri_tarantula_40_3 = new Tarantula(81,1,"mri_tarantula");
 		demo_mri_40_3.TYPE = 15;
-		demo_mri_40_3.debug(mri_tarantula);
+		demo_mri_40_3.debug(mri_tarantula_40_3);
 		
+		LocalizationTechnique mri_tarantula_40_4 = new Tarantula(81,1,"mri_tarantula");
 		demo_mri_40_4.TYPE = 16;
-		demo_mri_40_4.debug(mri_tarantula);
+		demo_mri_40_4.debug(mri_tarantula_40_4);
 		
+		LocalizationTechnique mri_tarantula_40_5 = new Tarantula(81,1,"mri_tarantula");
 		demo_mri_40_5.TYPE = 17;
-		demo_mri_40_5.debug(mri_tarantula);
+		demo_mri_40_5.debug(mri_tarantula_40_5);
 		
+		LocalizationTechnique mri_tarantula_40_6 = new Tarantula(81,1,"mri_tarantula");
 		demo_mri_40_6.TYPE = 18;
-		demo_mri_40_6.debug(mri_tarantula);
+		demo_mri_40_6.debug(mri_tarantula_40_6);
 		
+		LocalizationTechnique mri_tarantula_40_7 = new Tarantula(81,1,"mri_tarantula");
 		demo_mri_40_7.TYPE = 19;
-		demo_mri_40_7.debug(mri_tarantula);
+		demo_mri_40_7.debug(mri_tarantula_40_7);
 		
+		LocalizationTechnique mri_tarantula_55_1 = new Tarantula(95,1,"mri_tarantula");
 		demo_mri_55_1.TYPE = 20;
-		demo_mri_55_1.debug(mri_tarantula);
+		demo_mri_55_1.debug(mri_tarantula_55_1);
 		
+		LocalizationTechnique mri_tarantula_55_2 = new Tarantula(95,1,"mri_tarantula");
 		demo_mri_55_2.TYPE = 21;
-		demo_mri_55_2.debug(mri_tarantula);
+		demo_mri_55_2.debug(mri_tarantula_55_2);
 		
+		LocalizationTechnique mri_tarantula_55_3 = new Tarantula(95,1,"mri_tarantula");
 		demo_mri_55_3.TYPE = 22;
-		demo_mri_55_3.debug(mri_tarantula);
+		demo_mri_55_3.debug(mri_tarantula_55_3);
 		
+		LocalizationTechnique mri_tarantula_55_4 = new Tarantula(95,1,"mri_tarantula");
 		demo_mri_55_4.TYPE = 23;
-		demo_mri_55_4.debug(mri_tarantula);
+		demo_mri_55_4.debug(mri_tarantula_55_4);
 		
+		LocalizationTechnique mri_tarantula_55_5 = new Tarantula(95,1,"mri_tarantula");
 		demo_mri_55_5.TYPE = 24;
-		demo_mri_55_5.debug(mri_tarantula);
+		demo_mri_55_5.debug(mri_tarantula_55_5);
 		
+		LocalizationTechnique mri_tarantula_55_6 = new Tarantula(95,1,"mri_tarantula");
 		demo_mri_55_6.TYPE = 25;
-		demo_mri_55_6.debug(mri_tarantula);
+		demo_mri_55_6.debug(mri_tarantula_55_6);
 		
+		LocalizationTechnique mri_tarantula_55_7 = new Tarantula(95,1,"mri_tarantula");
 		demo_mri_55_7.TYPE = 26;
-		demo_mri_55_7.debug(mri_tarantula);
+		demo_mri_55_7.debug(mri_tarantula_55_7);
 		
+		LocalizationTechnique mri_tarantula_55_8 = new Tarantula(95,1,"mri_tarantula");
 		demo_mri_55_8.TYPE = 27;
-		demo_mri_55_8.debug(mri_tarantula);
+		demo_mri_55_8.debug(mri_tarantula_55_8);
 	}
 
 	private static void dStar(String ip, String sourceFolder) {
@@ -293,19 +314,22 @@ public class Experiment extends SFL{
 		Experiment demo_Dstar_40 = new Experiment(pName2_40, ip, sourceFolder, expFile2_40);
 		Experiment demo_Dstar_55 = new Experiment(pName2_55, ip, sourceFolder, expFile2_55);
 		
-		LocalizationTechnique dStar = new DStar(3,3,"dstar");
-		
+		LocalizationTechnique dStar_30 = new DStar(11,1,"dstar");
+		LocalizationTechnique dStar_35 = new DStar(42,3,"dstar");
+		LocalizationTechnique dStar_40 = new DStar(80,7,"dstar");
+		LocalizationTechnique dStar_55 = new DStar(95,8,"dstar");
+
 		demo_Dstar_30.TYPE = 5;
-		demo_Dstar_30.debug(dStar);
+		demo_Dstar_30.debug(dStar_30);
 		
-		demo_Dstar_30.TYPE = 6;
-		demo_Dstar_35.debug(dStar);
+		demo_Dstar_35.TYPE = 6;
+		demo_Dstar_35.debug(dStar_35);
 		
-		demo_Dstar_30.TYPE = 7;
-		demo_Dstar_40.debug(dStar);
+		demo_Dstar_40.TYPE = 7;
+		demo_Dstar_40.debug(dStar_40);
 		
-		demo_Dstar_30.TYPE = 8;
-		demo_Dstar_55.debug(dStar);
+		demo_Dstar_55.TYPE = 8;
+		demo_Dstar_55.debug(dStar_55);
 	}
 
 	private static void tarantula(String ip, String sourceFolder) {
@@ -324,19 +348,24 @@ public class Experiment extends SFL{
 		Experiment demo_tarantula_40 = new Experiment(pName1_40, ip, sourceFolder, expFile1_40);
 		Experiment demo_tarantula_55 = new Experiment(pName1_55, ip, sourceFolder, expFile1_55);
 		
-		LocalizationTechnique tarantula = new Tarantula(3,3,"tarantula");
-		
-		demo_tarantula_30.TYPE = 1;
-		demo_tarantula_30.debug(tarantula);
-		
-		demo_tarantula_30.TYPE = 2;
-		demo_tarantula_35.debug(tarantula);
+		LocalizationTechnique tarantula_30 = new Tarantula(11,1,"tarantula");
+		LocalizationTechnique tarantula_35 = new Tarantula(42,3,"tarantula");
+		LocalizationTechnique tarantula_40 = new Tarantula(80,7,"tarantula");
+		LocalizationTechnique tarantula_55 = new Tarantula(95,8,"tarantula");
 
-		demo_tarantula_30.TYPE = 3;
-		demo_tarantula_40.debug(tarantula);
 		
-		demo_tarantula_30.TYPE = 4;
-		demo_tarantula_55.debug(tarantula);
+//		demo_tarantula_30.TYPE = 1;
+//		demo_tarantula_30.debug(tarantula_30);
+		
+		demo_tarantula_35.TYPE = 2;
+		demo_tarantula_35.debug(tarantula_35);
+
+		demo_tarantula_40.TYPE = 3;
+		demo_tarantula_40.debug(tarantula_40);
+		
+		demo_tarantula_55.TYPE = 4;
+		demo_tarantula_55.debug(tarantula_55);
+		
 	}
 
 
