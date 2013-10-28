@@ -8,6 +8,7 @@ import org.wizehack.mri.Test.Group;
 import org.wizehack.mri.Test.TestCase;
 import org.wizehack.mri.Test.TestSuite;
 import org.wizehack.mri.fl.DStar;
+import org.wizehack.mri.fl.HeuristicIII;
 import org.wizehack.mri.fl.LocalizationTechnique;
 import org.wizehack.mri.fl.Tarantula;
 import org.wizehack.mri.io.FileListReader;
@@ -101,9 +102,23 @@ public class Experiment extends SFL{
 
 		} else if (this.TYPE == 27){
 			covDir = "/home/wizehack/exp/mri/55/8";
-		} else {
+		} 		
+		
+		// heuristic III
+		else if(this.TYPE == 28) {
+			covDir = "/home/wizehack/exp/target/30";
+		} else if (this.TYPE == 29) {
+			covDir = "/home/wizehack/exp/target/35";
+		} else if (this.TYPE == 30) {
+			covDir = "/home/wizehack/exp/target/40";
+		} else if (this.TYPE == 31) {
+			covDir = "/home/wizehack/exp/target/55";
+		}	else {
 			System.out.println("error!!!! >>>>>>>>>>>>>>>>>>>>>>>>>>>");
-		}
+		} 
+		
+
+		
 		
 		FileListReader fileListReader = new FileListReader();
 		fileListReader.setExtensionType("xml");
@@ -147,10 +162,12 @@ public class Experiment extends SFL{
 		//TARGET
 //		tarantula(ip, sourceFolder);
 
-		dStar(ip, sourceFolder);
+//		dStar(ip, sourceFolder);
+		
+		heuristicIII(ip, sourceFolder);
 		
 		//MRI METHODOLOGY
-		mriTarantula(ip, sourceFolder);
+//		mriTarantula(ip, sourceFolder);
 	}
 
 	private static void mriTarantula(String ip, String sourceFolder) {
@@ -225,6 +242,8 @@ public class Experiment extends SFL{
 		demo_mri_30.TYPE = 9;
 		demo_mri_30.debug(mri_tarantula);
 		*/
+		
+		
 		LocalizationTechnique mri_tarantula_35_1 = new Tarantula(43,1,"mri_tarantula");
 		demo_mri_35_1.TYPE = 10;
 		demo_mri_35_1.debug(mri_tarantula_35_1);
@@ -265,6 +284,7 @@ public class Experiment extends SFL{
 		demo_mri_40_7.TYPE = 19;
 		demo_mri_40_7.debug(mri_tarantula_40_7);
 		
+		
 		LocalizationTechnique mri_tarantula_55_1 = new Tarantula(95,1,"mri_tarantula");
 		demo_mri_55_1.TYPE = 20;
 		demo_mri_55_1.debug(mri_tarantula_55_1);
@@ -298,6 +318,41 @@ public class Experiment extends SFL{
 		demo_mri_55_8.debug(mri_tarantula_55_8);
 	}
 
+	private static void heuristicIII(String ip, String sourceFolder) {
+		String pName2_30 = "CodeTest_HeuristicIII_30";
+		String pName2_35 = "CodeTest_HeuristicIII_35";
+		String pName2_40 = "CodeTest_HeuristicIII_40";
+		String pName2_55 = "CodeTest_HeuristicIII_55";
+		
+		String expFile2_30 = "/home/wizehack/exp/docFile_HeuristicIII_30.csv";
+		String expFile2_35 = "/home/wizehack/exp/docFile_HeuristicIII_35.csv";
+		String expFile2_40 = "/home/wizehack/exp/docFile_HeuristicIII_40.csv";
+		String expFile2_55 = "/home/wizehack/exp/docFile_HeuristicIII_55.csv";
+
+		Experiment demo_HeuristicIII_30 = new Experiment(pName2_30, ip, sourceFolder, expFile2_30);
+		Experiment demo_HeuristicIII_35 = new Experiment(pName2_35, ip, sourceFolder, expFile2_35);
+		Experiment demo_HeuristicIII_40 = new Experiment(pName2_40, ip, sourceFolder, expFile2_40);
+		Experiment demo_HeuristicIII_55 = new Experiment(pName2_55, ip, sourceFolder, expFile2_55);
+		
+		LocalizationTechnique heuristicIII_30 = new HeuristicIII(11,1,"HeuristicIII");
+		LocalizationTechnique heuristicII_35 = new HeuristicIII(42,3,"HeuristicIII");
+		LocalizationTechnique heuristicII_40 = new HeuristicIII(80,7,"HeuristicIII");
+		LocalizationTechnique heuristicII_55 = new HeuristicIII(95,8,"HeuristicIII");
+
+		demo_HeuristicIII_30.TYPE = 28;
+		demo_HeuristicIII_30.debug(heuristicIII_30);
+		
+		demo_HeuristicIII_35.TYPE = 29;
+		demo_HeuristicIII_35.debug(heuristicII_35);
+		
+		demo_HeuristicIII_40.TYPE = 30;
+		demo_HeuristicIII_40.debug(heuristicII_40);
+		
+		demo_HeuristicIII_55.TYPE = 31;
+		demo_HeuristicIII_55.debug(heuristicII_55);
+	}
+
+	
 	private static void dStar(String ip, String sourceFolder) {
 		String pName2_30 = "CodeTest_Dstar_30";
 		String pName2_35 = "CodeTest_Dstar_35";
