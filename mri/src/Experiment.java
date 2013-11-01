@@ -96,7 +96,7 @@ public class Experiment extends SFL{
 
 		} else if (this.TYPE == 25) {
 			covDir = "/home/wizehack/exp/mri/55/6";
-
+			
 		} else if (this.TYPE == 26) {
 			covDir = "/home/wizehack/exp/mri/55/7";
 
@@ -116,8 +116,6 @@ public class Experiment extends SFL{
 		}	else {
 			System.out.println("error!!!! >>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		} 
-		
-
 		
 		
 		FileListReader fileListReader = new FileListReader();
@@ -164,12 +162,299 @@ public class Experiment extends SFL{
 
 //		dStar(ip, sourceFolder);
 		
-		heuristicIII(ip, sourceFolder);
+//		heuristicIII(ip, sourceFolder);
 		
+		mriDstar(ip, sourceFolder);
+		
+//		mriHeuristicIII(ip, sourceFolder);
 		//MRI METHODOLOGY
 //		mriTarantula(ip, sourceFolder);
 	}
+	
+	private static void mriDstar(String ip, String sourceFolder) {
+		String pName3_30 = "CodeTest_Dstar_30";
+		String pName3_35_1 = "CodeTest_Dstar_35_1";
+		String pName3_35_2 = "CodeTest_Dstar_35_2";
+		String pName3_35_3 = "CodeTest_Dstar_35_3";
 
+		String pName3_40_1 = "CodeTest_Dstar_40_1";
+		String pName3_40_2 = "CodeTest_Dstar_40_2";
+		String pName3_40_3 = "CodeTest_Dstar_40_3";
+		String pName3_40_4 = "CodeTest_Dstar_40_4";
+		String pName3_40_5 = "CodeTest_Dstar_40_5";
+		String pName3_40_6 = "CodeTest_Dstar_40_6";
+		String pName3_40_7 = "CodeTest_Dstar_40_7";
+
+		String pName3_55_1 = "CodeTest_Dstar_55_1";
+		String pName3_55_2 = "CodeTest_Dstar_55_2";
+		String pName3_55_3 = "CodeTest_Dstar_55_3";
+		String pName3_55_4 = "CodeTest_Dstar_55_4";
+		String pName3_55_5 = "CodeTest_Dstar_55_5";
+		String pName3_55_6 = "CodeTest_Dstar_55_6";
+		String pName3_55_7 = "CodeTest_Dstar_55_7";
+		String pName3_55_8 = "CodeTest_Dstar_55_8";
+
+		String expFile3_30 = "/home/wizehack/exp/docFile_mri_30.csv";
+		String expFile3_35_1 = "/home/wizehack/exp/docFile_mri_35_1.csv";
+		String expFile3_35_2 = "/home/wizehack/exp/docFile_mri_35_2.csv";
+		String expFile3_35_3 = "/home/wizehachttp://media.daum.net/foreign/?newsId=20131101092313702k/exp/docFile_mri_35_3.csv";
+
+		String expFile3_40_1 = "/home/wizehack/exp/docFile_mri_40_1.csv";
+		String expFile3_40_2 = "/home/wizehack/exp/docFile_mri_40_2.csv";
+		String expFile3_40_3 = "/home/wizehack/exp/docFile_mri_40_3.csv";
+		String expFile3_40_4 = "/home/wizehack/exp/docFile_mri_40_4.csv";
+		String expFile3_40_5 = "/home/wizehack/exp/docFile_mri_40_5.csv";
+		String expFile3_40_6 = "/home/wizehack/exp/docFile_mri_40_6.csv";
+		String expFile3_40_7 = "/home/wizehack/exp/docFile_mri_40_7.csv";
+
+		String expFile3_55_1 = "/home/wizehack/exp/docFile_mri_55_1.csv";
+		String expFile3_55_2 = "/home/wizehack/exp/docFile_mri_55_2.csv";
+		String expFile3_55_3 = "/home/wizehack/exp/docFile_mri_55_3.csv";
+		String expFile3_55_4 = "/home/wizehack/exp/docFile_mri_55_4.csv";
+		String expFile3_55_5 = "/home/wizehack/exp/docFile_mri_55_5.csv";
+		String expFile3_55_6 = "/home/wizehack/exp/docFile_mri_55_6.csv";
+		String expFile3_55_7 = "/home/wizehack/exp/docFile_mri_55_7.csv";
+		String expFile3_55_8 = "/home/wizehack/exp/docFile_mri_55_8.csv";
+
+		Experiment demo_mri_30 = new Experiment(pName3_30, ip, sourceFolder, expFile3_30);
+		Experiment demo_mri_35_1 = new Experiment(pName3_35_1, ip, sourceFolder, expFile3_35_1);
+		Experiment demo_mri_35_2 = new Experiment(pName3_35_2, ip, sourceFolder, expFile3_35_2);
+		Experiment demo_mri_35_3 = new Experiment(pName3_35_3, ip, sourceFolder, expFile3_35_3);
+
+		Experiment demo_mri_40_1 = new Experiment(pName3_40_1, ip, sourceFolder, expFile3_40_1);
+		Experiment demo_mri_40_2 = new Experiment(pName3_40_2, ip, sourceFolder, expFile3_40_2);
+		Experiment demo_mri_40_3 = new Experiment(pName3_40_3, ip, sourceFolder, expFile3_40_3);
+		Experiment demo_mri_40_4 = new Experiment(pName3_40_4, ip, sourceFolder, expFile3_40_4);
+		Experiment demo_mri_40_5 = new Experiment(pName3_40_5, ip, sourceFolder, expFile3_40_5);
+		Experiment demo_mri_40_6 = new Experiment(pName3_40_6, ip, sourceFolder, expFile3_40_6);
+		Experiment demo_mri_40_7 = new Experiment(pName3_40_7, ip, sourceFolder, expFile3_40_7);
+
+		Experiment demo_mri_55_1 = new Experiment(pName3_55_1, ip, sourceFolder, expFile3_55_1);
+		Experiment demo_mri_55_2 = new Experiment(pName3_55_2, ip, sourceFolder, expFile3_55_2);
+		Experiment demo_mri_55_3 = new Experiment(pName3_55_3, ip, sourceFolder, expFile3_55_3);
+		Experiment demo_mri_55_4 = new Experiment(pName3_55_4, ip, sourceFolder, expFile3_55_4);
+		Experiment demo_mri_55_5 = new Experiment(pName3_55_5, ip, sourceFolder, expFile3_55_5);
+		Experiment demo_mri_55_6 = new Experiment(pName3_55_6, ip, sourceFolder, expFile3_55_6);
+		Experiment demo_mri_55_7 = new Experiment(pName3_55_7, ip, sourceFolder, expFile3_55_7);
+		Experiment demo_mri_55_8 = new Experiment(pName3_55_8, ip, sourceFolder, expFile3_55_8);
+
+//		LocalizationTechnique mri_dStar_35_1 = new DStar(43,1,"mri_Dstar");
+//		demo_mri_35_1.TYPE = 10;
+//		demo_mri_35_1.debug(mri_dStar_35_1);
+//		
+//		LocalizationTechnique mri_dStar_35_2 = new DStar(43,1,"mri_DStar");
+//		demo_mri_35_2.TYPE = 11;
+//		demo_mri_35_2.debug(mri_dStar_35_2);
+//		
+//		LocalizationTechnique mri_dStar_35_3 = new DStar(43,1,"mri_DStar");
+//		demo_mri_35_3.TYPE = 12;
+//		demo_mri_35_3.debug(mri_dStar_35_3);
+		
+//		LocalizationTechnique mri_dStar_40_1 = new DStar(81,1,"mri_DStar");
+//		demo_mri_40_1.TYPE = 13;
+//		demo_mri_40_1.debug(mri_dStar_40_1);
+//		
+//		LocalizationTechnique mri_dStar_40_2 = new DStar(81,1,"mri_DStar");
+//		demo_mri_40_2.TYPE = 14;
+//		demo_mri_40_2.debug(mri_dStar_40_2);
+//		
+//		LocalizationTechnique mri_dStar_40_3 = new DStar(81,1,"mri_DStar");
+//		demo_mri_40_3.TYPE = 15;
+//		demo_mri_40_3.debug(mri_dStar_40_3);
+//		
+//		LocalizationTechnique mri_dStar_40_4 = new DStar(81,1,"mri_DStar");
+//		demo_mri_40_4.TYPE = 16;
+//		demo_mri_40_4.debug(mri_dStar_40_4);
+//		
+//		LocalizationTechnique mri_dStar_40_5 = new DStar(81,1,"mri_DStar");
+//		demo_mri_40_5.TYPE = 17;
+//		demo_mri_40_5.debug(mri_dStar_40_5);
+//		
+//		LocalizationTechnique mri_dStar_40_6 = new DStar(81,1,"mri_DStar");
+//		demo_mri_40_6.TYPE = 18;
+//		demo_mri_40_6.debug(mri_dStar_40_6);
+//		
+//		LocalizationTechnique mri_dStar_40_7 = new DStar(81,1,"mri_DStar");
+//		demo_mri_40_7.TYPE = 19;
+//		demo_mri_40_7.debug(mri_dStar_40_7);
+		
+		
+//		LocalizationTechnique mri_dStar_55_1 = new DStar(95,1,"mri_DStar");
+//		demo_mri_55_1.TYPE = 20;
+//		demo_mri_55_1.debug(mri_dStar_55_1);
+//		
+//		LocalizationTechnique mri_dStar_55_2 = new DStar(95,1,"mri_DStar");
+//		demo_mri_55_2.TYPE = 21;
+//		demo_mri_55_2.debug(mri_dStar_55_2);
+//	
+//		LocalizationTechnique mri_dStar_55_3 = new DStar(95,1,"mri_DStar");
+//		demo_mri_55_3.TYPE = 22;
+//		demo_mri_55_3.debug(mri_dStar_55_3);
+//		
+//		LocalizationTechnique mri_dStar_55_4 = new DStar(95,1,"mri_DStar");
+//		demo_mri_55_4.TYPE = 23;
+//		demo_mri_55_4.debug(mri_dStar_55_4);
+//		
+//		LocalizationTechnique mri_dStar_55_5 = new DStar(95,1,"mri_DStar");
+//		demo_mri_55_5.TYPE = 24;
+//		demo_mri_55_5.debug(mri_dStar_55_5);
+		
+		LocalizationTechnique mri_dStar_55_6 = new DStar(95,1,"mri_DStar");
+		demo_mri_55_6.TYPE = 25;
+		demo_mri_55_6.debug(mri_dStar_55_6);
+//		
+//		LocalizationTechnique mri_dStar_55_7 = new DStar(95,1,"mri_DStar");
+//		demo_mri_55_7.TYPE = 26;
+//		demo_mri_55_7.debug(mri_dStar_55_7);
+//		
+//		LocalizationTechnique mri_dStar_55_8 = new DStar(95,1,"mri_DStar");
+//		demo_mri_55_8.TYPE = 27;
+//		demo_mri_55_8.debug(mri_dStar_55_8);	
+
+	}
+	
+	private static void mriHeuristicIII(String ip, String sourceFolder) {
+		String pName3_30 = "CodeTest_HeuristicIII_30";
+		String pName3_35_1 = "CodeTest_HeuristicIII_35_1";
+		String pName3_35_2 = "CodeTest_HeuristicIII_35_2";
+		String pName3_35_3 = "CodeTest_HeuristicIII_35_3";
+
+		String pName3_40_1 = "CodeTest_HeuristicIII_40_1";
+		String pName3_40_2 = "CodeTest_HeuristicIII_40_2";
+		String pName3_40_3 = "CodeTest_HeuristicIII_40_3";
+		String pName3_40_4 = "CodeTest_HeuristicIII_40_4";
+		String pName3_40_5 = "CodeTest_HeuristicIII_40_5";
+		String pName3_40_6 = "CodeTest_HeuristicIII_40_6";
+		String pName3_40_7 = "CodeTest_HeuristicIII_40_7";
+
+		String pName3_55_1 = "CodeTest_HeuristicIII_55_1";
+		String pName3_55_2 = "CodeTest_HeuristicIII_55_2";
+		String pName3_55_3 = "CodeTest_HeuristicIII_55_3";
+		String pName3_55_4 = "CodeTest_HeuristicIII_55_4";
+		String pName3_55_5 = "CodeTest_HeuristicIII_55_5";
+		String pName3_55_6 = "CodeTest_HeuristicIII_55_6";
+		String pName3_55_7 = "CodeTest_HeuristicIII_55_7";
+		String pName3_55_8 = "CodeTest_HeuristicIII_55_8";
+
+		String expFile3_30 = "/home/wizehack/exp/docFile_mri_30.csv";
+		String expFile3_35_1 = "/home/wizehack/exp/docFile_mri_35_1.csv";
+		String expFile3_35_2 = "/home/wizehack/exp/docFile_mri_35_2.csv";
+		String expFile3_35_3 = "/home/wizehack/exp/docFile_mri_35_3.csv";
+
+		String expFile3_40_1 = "/home/wizehack/exp/docFile_mri_40_1.csv";
+		String expFile3_40_2 = "/home/wizehack/exp/docFile_mri_40_2.csv";
+		String expFile3_40_3 = "/home/wizehack/exp/docFile_mri_40_3.csv";
+		String expFile3_40_4 = "/home/wizehack/exp/docFile_mri_40_4.csv";
+		String expFile3_40_5 = "/home/wizehack/exp/docFile_mri_40_5.csv";
+		String expFile3_40_6 = "/home/wizehack/exp/docFile_mri_40_6.csv";
+		String expFile3_40_7 = "/home/wizehack/exp/docFile_mri_40_7.csv";
+
+		String expFile3_55_1 = "/home/wizehack/exp/docFile_mri_55_1.csv";
+		String expFile3_55_2 = "/home/wizehack/exp/docFile_mri_55_2.csv";
+		String expFile3_55_3 = "/home/wizehack/exp/docFile_mri_55_3.csv";
+		String expFile3_55_4 = "/home/wizehack/exp/docFile_mri_55_4.csv";
+		String expFile3_55_5 = "/home/wizehack/exp/docFile_mri_55_5.csv";
+		String expFile3_55_6 = "/home/wizehack/exp/docFile_mri_55_6.csv";
+		String expFile3_55_7 = "/home/wizehack/exp/docFile_mri_55_7.csv";
+		String expFile3_55_8 = "/home/wizehack/exp/docFile_mri_55_8.csv";
+
+		Experiment demo_mri_30 = new Experiment(pName3_30, ip, sourceFolder, expFile3_30);
+		Experiment demo_mri_35_1 = new Experiment(pName3_35_1, ip, sourceFolder, expFile3_35_1);
+		Experiment demo_mri_35_2 = new Experiment(pName3_35_2, ip, sourceFolder, expFile3_35_2);
+		Experiment demo_mri_35_3 = new Experiment(pName3_35_3, ip, sourceFolder, expFile3_35_3);
+
+		Experiment demo_mri_40_1 = new Experiment(pName3_40_1, ip, sourceFolder, expFile3_40_1);
+		Experiment demo_mri_40_2 = new Experiment(pName3_40_2, ip, sourceFolder, expFile3_40_2);
+		Experiment demo_mri_40_3 = new Experiment(pName3_40_3, ip, sourceFolder, expFile3_40_3);
+		Experiment demo_mri_40_4 = new Experiment(pName3_40_4, ip, sourceFolder, expFile3_40_4);
+		Experiment demo_mri_40_5 = new Experiment(pName3_40_5, ip, sourceFolder, expFile3_40_5);
+		Experiment demo_mri_40_6 = new Experiment(pName3_40_6, ip, sourceFolder, expFile3_40_6);
+		Experiment demo_mri_40_7 = new Experiment(pName3_40_7, ip, sourceFolder, expFile3_40_7);
+
+		Experiment demo_mri_55_1 = new Experiment(pName3_55_1, ip, sourceFolder, expFile3_55_1);
+		Experiment demo_mri_55_2 = new Experiment(pName3_55_2, ip, sourceFolder, expFile3_55_2);
+		Experiment demo_mri_55_3 = new Experiment(pName3_55_3, ip, sourceFolder, expFile3_55_3);
+		Experiment demo_mri_55_4 = new Experiment(pName3_55_4, ip, sourceFolder, expFile3_55_4);
+		Experiment demo_mri_55_5 = new Experiment(pName3_55_5, ip, sourceFolder, expFile3_55_5);
+		Experiment demo_mri_55_6 = new Experiment(pName3_55_6, ip, sourceFolder, expFile3_55_6);
+		Experiment demo_mri_55_7 = new Experiment(pName3_55_7, ip, sourceFolder, expFile3_55_7);
+		Experiment demo_mri_55_8 = new Experiment(pName3_55_8, ip, sourceFolder, expFile3_55_8);
+
+		LocalizationTechnique mri_heuristicIII_35_1 = new HeuristicIII(43,1,"mri_HeuristicIII");
+		demo_mri_35_1.TYPE = 10;
+		demo_mri_35_1.debug(mri_heuristicIII_35_1);
+		
+		LocalizationTechnique mri_heuristicIII_35_2 = new HeuristicIII(43,1,"mri_HeuristicIII");
+		demo_mri_35_2.TYPE = 11;
+		demo_mri_35_2.debug(mri_heuristicIII_35_2);
+		
+		LocalizationTechnique mri_heuristicIII_35_3 = new HeuristicIII(43,1,"mri_HeuristicIII");
+		demo_mri_35_3.TYPE = 12;
+		demo_mri_35_3.debug(mri_heuristicIII_35_3);
+		
+		LocalizationTechnique mri_heuristicIII_40_1 = new HeuristicIII(81,1,"mri_HeuristicIII");
+		demo_mri_40_1.TYPE = 13;
+		demo_mri_40_1.debug(mri_heuristicIII_40_1);
+		
+		LocalizationTechnique mri_heuristicIII_40_2 = new HeuristicIII(81,1,"mri_HeuristicIII");
+		demo_mri_40_2.TYPE = 14;
+		demo_mri_40_2.debug(mri_heuristicIII_40_2);
+		
+		LocalizationTechnique mri_heuristicIII_40_3 = new HeuristicIII(81,1,"mri_HeuristicIII");
+		demo_mri_40_3.TYPE = 15;
+		demo_mri_40_3.debug(mri_heuristicIII_40_3);
+		
+		LocalizationTechnique mri_heuristicIII_40_4 = new HeuristicIII(81,1,"mri_HeuristicIII");
+		demo_mri_40_4.TYPE = 16;
+		demo_mri_40_4.debug(mri_heuristicIII_40_4);
+		
+		LocalizationTechnique mri_heuristicIII_40_5 = new HeuristicIII(81,1,"mri_HeuristicIII");
+		demo_mri_40_5.TYPE = 17;
+		demo_mri_40_5.debug(mri_heuristicIII_40_5);
+		
+		LocalizationTechnique mri_heuristicIII_40_6 = new HeuristicIII(81,1,"mri_HeuristicIII");
+		demo_mri_40_6.TYPE = 18;
+		demo_mri_40_6.debug(mri_heuristicIII_40_6);
+		
+		LocalizationTechnique mri_heuristicIII_40_7 = new HeuristicIII(81,1,"mri_HeuristicIII");
+		demo_mri_40_7.TYPE = 19;
+		demo_mri_40_7.debug(mri_heuristicIII_40_7);
+		
+		
+		LocalizationTechnique mri_heuristicIII_55_1 = new HeuristicIII(95,1,"mri_HeuristicIII");
+		demo_mri_55_1.TYPE = 20;
+		demo_mri_55_1.debug(mri_heuristicIII_55_1);
+		
+		LocalizationTechnique mri_heuristicIII_55_2 = new HeuristicIII(95,1,"mri_HeuristicIII");
+		demo_mri_55_2.TYPE = 21;
+		demo_mri_55_2.debug(mri_heuristicIII_55_2);
+	
+		LocalizationTechnique mri_heuristicIII_55_3 = new HeuristicIII(95,1,"mri_HeuristicIII");
+		demo_mri_55_3.TYPE = 22;
+		demo_mri_55_3.debug(mri_heuristicIII_55_3);
+		
+		LocalizationTechnique mri_heuristicIII_55_4 = new HeuristicIII(95,1,"mri_HeuristicIII");
+		demo_mri_55_4.TYPE = 23;
+		demo_mri_55_4.debug(mri_heuristicIII_55_4);
+		
+		LocalizationTechnique mri_heuristicIII_55_5 = new HeuristicIII(95,1,"mri_HeuristicIII");
+		demo_mri_55_5.TYPE = 24;
+		demo_mri_55_5.debug(mri_heuristicIII_55_5);
+		
+		LocalizationTechnique mri_heuristicIII_55_6 = new HeuristicIII(95,1,"mri_HeuristicIII");
+		demo_mri_55_6.TYPE = 25;
+		demo_mri_55_6.debug(mri_heuristicIII_55_6);
+		
+		LocalizationTechnique mri_heuristicIII_55_7 = new HeuristicIII(95,1,"mri_HeuristicIII");
+		demo_mri_55_7.TYPE = 26;
+		demo_mri_55_7.debug(mri_heuristicIII_55_7);
+		
+		LocalizationTechnique mri_heuristicIII_55_8 = new HeuristicIII(95,1,"mri_HeuristicIII");
+		demo_mri_55_8.TYPE = 27;
+		demo_mri_55_8.debug(mri_heuristicIII_55_8);	
+	}
+	
+	
 	private static void mriTarantula(String ip, String sourceFolder) {
 		String pName3_30 = "CodeTest_Tarantula_30";
 		String pName3_35_1 = "CodeTest_Tarantula_35_1";
