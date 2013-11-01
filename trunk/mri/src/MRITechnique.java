@@ -27,14 +27,310 @@ public class MRITechnique {
 	public static void main(String[] args) {
 		mongoManager = MongoManager.getInstance();
 		mongoManager.createPool(IP);
+		
+		mri_DStar_35();
+		mri_DStar_40();
+		mri_DStar_55();
 
 		mri_tarantula_35();
 		
 		mri_tarantula_40();
-		
+
 		mri_tarantula_55();
 	}
 	
+	private static void mri_DStar_55() {
+		String db_55_1 = "CodeTest_DStar_55_1";
+		String db_55_2 = "CodeTest_DStar_55_2";
+		String db_55_3 = "CodeTest_DStar_55_3";
+		String db_55_4 = "CodeTest_DStar_55_4";
+		String db_55_5 = "CodeTest_DStar_55_5";
+		String db_55_6 = "CodeTest_DStar_55_6";
+
+		//failed group spectrum 수집 - 완료
+		//similarity 분석 - mapReduce with weight
+		
+		//suspiciousness
+		List<TestCaseInfo> testCaseInfoList1 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList2 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList3 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList4 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList5 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList6 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList7 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList8 = new ArrayList<TestCaseInfo>();
+
+		Mongo mongo = null;
+		try {
+			mongo = mongoManager.getConnection();
+			DB db_DStar_55_1 = mongo.getDB(db_55_1);
+			List<Result> resultList_55_1 = getLocalizationCollection(db_DStar_55_1);
+			
+			DB db_DStar_55_2 = mongo.getDB(db_55_2);
+			List<Result> resultList_55_2 = getLocalizationCollection(db_DStar_55_2);
+
+			DB db_DStar_55_3 = mongo.getDB(db_55_3);
+			List<Result> resultList_55_3 = getLocalizationCollection(db_DStar_55_3);
+
+			DB db_DStar_55_4 = mongo.getDB(db_55_4);
+			List<Result> resultList_55_4 = getLocalizationCollection(db_DStar_55_4);
+			
+			DB db_DStar_55_5 = mongo.getDB(db_55_5);
+			List<Result> resultList_55_5 = getLocalizationCollection(db_DStar_55_5);
+
+			DB db_DStar_55_6 = mongo.getDB(db_55_6);
+			List<Result> resultList_55_6 = getLocalizationCollection(db_DStar_55_6);
+
+			double t1 = getThreshold(resultList_55_1);
+			double t2 = getThreshold(resultList_55_2);
+			double t3 = getThreshold(resultList_55_3);
+			double t4 = getThreshold(resultList_55_4);
+			double t5 = getThreshold(resultList_55_5);
+			double t6 = getThreshold(resultList_55_6);
+
+			for(int i=0; i<resultList_55_1.size(); i++){
+				Result result1 = resultList_55_1.get(i);
+				Result result2 = resultList_55_2.get(i);
+				Result result3 = resultList_55_3.get(i);
+				Result result4 = resultList_55_4.get(i);
+				Result result5 = resultList_55_5.get(i);
+				Result result6 = resultList_55_6.get(i);
+				
+				if(new Double(result1.getSuspiciousness()) < t1 ||
+						new Double(result2.getSuspiciousness()) < t2 ||
+						new Double(result3.getSuspiciousness()) < t3 ||
+						new Double(result4.getSuspiciousness()) < t4 ||
+						new Double(result5.getSuspiciousness()) < t5 ||
+						new Double(result6.getSuspiciousness()) < t6
+						) {
+					
+					double id = new Double(result1.getStatementId());
+
+					double suspiciousness = ( new Double(result1.getSuspiciousness()) +
+							new Double(result2.getSuspiciousness()) +
+							new Double(result3.getSuspiciousness()) +
+							new Double(result4.getSuspiciousness()) +
+							new Double(result5.getSuspiciousness()) +
+							new Double(result6.getSuspiciousness()) 
+					) / 6;
+					updateSuspiciousness(db_DStar_55_1, id, suspiciousness);
+					updateSuspiciousness(db_DStar_55_2, id, suspiciousness);
+					updateSuspiciousness(db_DStar_55_3, id, suspiciousness);
+					updateSuspiciousness(db_DStar_55_4, id, suspiciousness);
+					updateSuspiciousness(db_DStar_55_5, id, suspiciousness);
+					updateSuspiciousness(db_DStar_55_6, id, suspiciousness);
+
+				}
+				
+			}
+			System.out.println("reporting...");
+			
+			String docFile1 = "/home/wizehack/exp/mri/mri_55_1.csv";
+			String docFile2 = "/home/wizehack/exp/mri/mri_55_2.csv";
+			String docFile3 = "/home/wizehack/exp/mri/mri_55_3.csv";
+			String docFile4 = "/home/wizehack/exp/mri/mri_55_4.csv";
+			String docFile5 = "/home/wizehack/exp/mri/mri_55_5.csv";
+			String docFile6 = "/home/wizehack/exp/mri/mri_55_6.csv";
+
+			exportToTextDoc(db_DStar_55_1, docFile1);
+			exportToTextDoc(db_DStar_55_2, docFile2);
+			exportToTextDoc(db_DStar_55_3, docFile3);
+			exportToTextDoc(db_DStar_55_4, docFile4);
+			exportToTextDoc(db_DStar_55_5, docFile5);
+			exportToTextDoc(db_DStar_55_6, docFile6);
+		} finally {
+			System.out.println("Compeleted");
+			mongoManager.closeConnection(mongo);
+		}
+		
+	}
+
+	private static void mri_DStar_40() {
+		String db_40_1 = "CodeTest_DStar_40_1";
+		String db_40_2 = "CodeTest_DStar_40_2";
+		String db_40_3 = "CodeTest_DStar_40_3";
+		String db_40_4 = "CodeTest_DStar_40_4";
+		String db_40_5 = "CodeTest_DStar_40_5";
+		String db_40_6 = "CodeTest_DStar_40_6";
+		String db_40_7 = "CodeTest_DStar_40_7";
+
+		//failed group spectrum 수집 - 완료
+		//similarity 분석 - mapReduce with weight
+		
+		//suspiciousness
+		List<TestCaseInfo> testCaseInfoList1 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList2 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList3 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList4 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList5 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList6 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList7 = new ArrayList<TestCaseInfo>();
+
+		Mongo mongo = null;
+		try {
+			mongo = mongoManager.getConnection();
+			DB db_DStar_40_1 = mongo.getDB(db_40_1);
+			List<Result> resultList_40_1 = getLocalizationCollection(db_DStar_40_1);
+			
+			DB db_DStar_40_2 = mongo.getDB(db_40_2);
+			List<Result> resultList_40_2 = getLocalizationCollection(db_DStar_40_2);
+
+			DB db_DStar_40_3 = mongo.getDB(db_40_3);
+			List<Result> resultList_40_3 = getLocalizationCollection(db_DStar_40_3);
+
+			DB db_DStar_40_4 = mongo.getDB(db_40_4);
+			List<Result> resultList_40_4 = getLocalizationCollection(db_DStar_40_4);
+			
+			DB db_DStar_40_5 = mongo.getDB(db_40_5);
+			List<Result> resultList_40_5 = getLocalizationCollection(db_DStar_40_5);
+
+			DB db_DStar_40_6 = mongo.getDB(db_40_6);
+			List<Result> resultList_40_6 = getLocalizationCollection(db_DStar_40_6);
+
+			DB db_DStar_40_7 = mongo.getDB(db_40_7);
+			List<Result> resultList_40_7 = getLocalizationCollection(db_DStar_40_7);
+			
+
+			double t1 = getThreshold(resultList_40_1);
+			double t2 = getThreshold(resultList_40_2);
+			double t3 = getThreshold(resultList_40_3);
+			double t4 = getThreshold(resultList_40_4);
+			double t5 = getThreshold(resultList_40_5);
+			double t6 = getThreshold(resultList_40_6);
+			double t7 = getThreshold(resultList_40_7);
+
+			for(int i=0; i<resultList_40_1.size(); i++){
+				Result result1 = resultList_40_1.get(i);
+				Result result2 = resultList_40_2.get(i);
+				Result result3 = resultList_40_3.get(i);
+				Result result4 = resultList_40_4.get(i);
+				Result result5 = resultList_40_5.get(i);
+				Result result6 = resultList_40_6.get(i);
+				Result result7 = resultList_40_7.get(i);
+				
+				if(new Double(result1.getSuspiciousness()) < t1 ||
+						new Double(result2.getSuspiciousness()) < t2 ||
+						new Double(result3.getSuspiciousness()) < t3 ||
+						new Double(result4.getSuspiciousness()) < t4 ||
+						new Double(result5.getSuspiciousness()) < t5 ||
+						new Double(result6.getSuspiciousness()) < t6 ||
+						new Double(result7.getSuspiciousness()) < t7
+						) {
+					
+					double id = new Double(result1.getStatementId());
+
+					double suspiciousness = ( new Double(result1.getSuspiciousness()) +
+							new Double(result2.getSuspiciousness()) +
+							new Double(result3.getSuspiciousness()) +
+							new Double(result4.getSuspiciousness()) +
+							new Double(result5.getSuspiciousness()) +
+							new Double(result6.getSuspiciousness()) +
+							new Double(result7.getSuspiciousness())
+					) / 7;
+					updateSuspiciousness(db_DStar_40_1, id, suspiciousness);
+					updateSuspiciousness(db_DStar_40_2, id, suspiciousness);
+					updateSuspiciousness(db_DStar_40_3, id, suspiciousness);
+					updateSuspiciousness(db_DStar_40_4, id, suspiciousness);
+					updateSuspiciousness(db_DStar_40_5, id, suspiciousness);
+					updateSuspiciousness(db_DStar_40_6, id, suspiciousness);
+					updateSuspiciousness(db_DStar_40_7, id, suspiciousness);
+
+				}
+				
+			}
+			System.out.println("reporting...");
+			
+			String docFile1 = "/home/wizehack/exp/mri/mri_40_1.csv";
+			String docFile2 = "/home/wizehack/exp/mri/mri_40_2.csv";
+			String docFile3 = "/home/wizehack/exp/mri/mri_40_3.csv";
+			String docFile4 = "/home/wizehack/exp/mri/mri_40_4.csv";
+			String docFile5 = "/home/wizehack/exp/mri/mri_40_5.csv";
+			String docFile6 = "/home/wizehack/exp/mri/mri_40_6.csv";
+			String docFile7 = "/home/wizehack/exp/mri/mri_40_7.csv";
+		
+			exportToTextDoc(db_DStar_40_1, docFile1);
+			exportToTextDoc(db_DStar_40_2, docFile2);
+			exportToTextDoc(db_DStar_40_3, docFile3);
+			exportToTextDoc(db_DStar_40_4, docFile4);
+			exportToTextDoc(db_DStar_40_5, docFile5);
+			exportToTextDoc(db_DStar_40_6, docFile6);
+			exportToTextDoc(db_DStar_40_7, docFile7);
+		} finally {
+			System.out.println("Compeleted");
+			mongoManager.closeConnection(mongo);
+		}
+
+	}
+
+	private static void mri_DStar_35() {
+		String db_35_1 = "CodeTest_DStar_35_1";
+		String db_35_2 = "CodeTest_DStar_35_2";
+		String db_35_3 = "CodeTest_DStar_35_3";
+				
+		//failed group spectrum 수집 - 완료
+		//similarity 분석 - mapReduce with weight
+		
+		
+		//suspiciousness
+		List<TestCaseInfo> testCaseInfoList1 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList2 = new ArrayList<TestCaseInfo>();
+		List<TestCaseInfo> testCaseInfoList3 = new ArrayList<TestCaseInfo>();
+
+		
+		Mongo mongo = null;
+		try {
+			mongo = mongoManager.getConnection();
+			DB db_DStar_35_1 = mongo.getDB(db_35_1);
+			List<Result> resultList_35_1 = getLocalizationCollection(db_DStar_35_1);
+			
+			DB db_DStar_35_2 = mongo.getDB(db_35_2);
+			List<Result> resultList_35_2 = getLocalizationCollection(db_DStar_35_2);
+
+			DB db_DStar_35_3 = mongo.getDB(db_35_3);
+			List<Result> resultList_35_3 = getLocalizationCollection(db_DStar_35_3);
+			
+			double t1 = getThreshold(resultList_35_1);
+			double t2 = getThreshold(resultList_35_2);
+			double t3 = getThreshold(resultList_35_3);
+
+			for(int i=0; i<resultList_35_1.size(); i++){
+				Result result1 = resultList_35_1.get(i);
+				Result result2 = resultList_35_2.get(i);
+				Result result3 = resultList_35_3.get(i);
+				
+				if(new Double(result1.getSuspiciousness()) < t1 ||
+						new Double(result2.getSuspiciousness()) < t2 ||
+						new Double(result3.getSuspiciousness()) < t3) {
+					
+					double id = new Double(result1.getStatementId());
+
+					double suspiciousness = ( new Double(result1.getSuspiciousness()) +
+							new Double(result2.getSuspiciousness()) +
+							new Double(result3.getSuspiciousness())) / 3;
+					updateSuspiciousness(db_DStar_35_1, id, suspiciousness);
+					updateSuspiciousness(db_DStar_35_2, id, suspiciousness);
+					updateSuspiciousness(db_DStar_35_3, id, suspiciousness);
+
+				}
+				
+			}
+			System.out.println("reporting...");
+			
+			String docFile1 = "/home/wizehack/exp/mri/mri_35_1.csv";
+			String docFile2 = "/home/wizehack/exp/mri/mri_35_2.csv";
+			String docFile3 = "/home/wizehack/exp/mri/mri_35_3.csv";
+			
+			exportToTextDoc(db_DStar_35_1, docFile1);
+			exportToTextDoc(db_DStar_35_2, docFile2);
+			exportToTextDoc(db_DStar_35_3, docFile3);
+
+		} finally {
+			System.out.println("Compeleted");
+			mongoManager.closeConnection(mongo);
+		}
+		
+	}
+
 	private static void mri_tarantula_55() {
 		String db_55_1 = "CodeTest_Tarantula_55_1";
 		String db_55_2 = "CodeTest_Tarantula_55_2";
