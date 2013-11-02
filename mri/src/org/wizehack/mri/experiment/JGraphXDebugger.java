@@ -1,3 +1,4 @@
+package org.wizehack.mri.experiment;
 
 
 import java.io.File;
@@ -13,11 +14,11 @@ import org.wizehack.mri.fl.LocalizationTechnique;
 import org.wizehack.mri.fl.Tarantula;
 import org.wizehack.mri.io.FileListReader;
 
-public class Experiment extends SFL{
+public class JGraphXDebugger extends SFL{
 
 	public int TYPE = 0;
 	
-	public Experiment(String projectName, String repositoryIp,
+	public JGraphXDebugger(String projectName, String repositoryIp,
 			String sourceFolder, String exportFile) {
 		super(projectName, repositoryIp, sourceFolder, exportFile);
 		// TODO Auto-generated constructor stub
@@ -56,7 +57,7 @@ public class Experiment extends SFL{
 		} else if (this.TYPE == 10) { 
 			covDir = "/home/wizehack/exp/mri/35/1";
 		} else if (this.TYPE == 11) {
-			covDir = "/home/wizehack/exp/mri/35/2";
+			covDir = "/home/wizehack/exp/mri/35/2";		
 		} else if (this.TYPE == 12) {
 			covDir = "/home/wizehack/exp/mri/35/3";
 		} else if (this.TYPE == 13) {
@@ -216,27 +217,27 @@ public class Experiment extends SFL{
 		String expFile3_55_7 = "/home/wizehack/exp/docFile_mri_55_7.csv";
 		String expFile3_55_8 = "/home/wizehack/exp/docFile_mri_55_8.csv";
 
-		Experiment demo_mri_30 = new Experiment(pName3_30, ip, sourceFolder, expFile3_30);
-		Experiment demo_mri_35_1 = new Experiment(pName3_35_1, ip, sourceFolder, expFile3_35_1);
-		Experiment demo_mri_35_2 = new Experiment(pName3_35_2, ip, sourceFolder, expFile3_35_2);
-		Experiment demo_mri_35_3 = new Experiment(pName3_35_3, ip, sourceFolder, expFile3_35_3);
+		JGraphXDebugger demo_mri_30 = new JGraphXDebugger(pName3_30, ip, sourceFolder, expFile3_30);
+		JGraphXDebugger demo_mri_35_1 = new JGraphXDebugger(pName3_35_1, ip, sourceFolder, expFile3_35_1);
+		JGraphXDebugger demo_mri_35_2 = new JGraphXDebugger(pName3_35_2, ip, sourceFolder, expFile3_35_2);
+		JGraphXDebugger demo_mri_35_3 = new JGraphXDebugger(pName3_35_3, ip, sourceFolder, expFile3_35_3);
 
-		Experiment demo_mri_40_1 = new Experiment(pName3_40_1, ip, sourceFolder, expFile3_40_1);
-		Experiment demo_mri_40_2 = new Experiment(pName3_40_2, ip, sourceFolder, expFile3_40_2);
-		Experiment demo_mri_40_3 = new Experiment(pName3_40_3, ip, sourceFolder, expFile3_40_3);
-		Experiment demo_mri_40_4 = new Experiment(pName3_40_4, ip, sourceFolder, expFile3_40_4);
-		Experiment demo_mri_40_5 = new Experiment(pName3_40_5, ip, sourceFolder, expFile3_40_5);
-		Experiment demo_mri_40_6 = new Experiment(pName3_40_6, ip, sourceFolder, expFile3_40_6);
-		Experiment demo_mri_40_7 = new Experiment(pName3_40_7, ip, sourceFolder, expFile3_40_7);
+		JGraphXDebugger demo_mri_40_1 = new JGraphXDebugger(pName3_40_1, ip, sourceFolder, expFile3_40_1);
+		JGraphXDebugger demo_mri_40_2 = new JGraphXDebugger(pName3_40_2, ip, sourceFolder, expFile3_40_2);
+		JGraphXDebugger demo_mri_40_3 = new JGraphXDebugger(pName3_40_3, ip, sourceFolder, expFile3_40_3);
+		JGraphXDebugger demo_mri_40_4 = new JGraphXDebugger(pName3_40_4, ip, sourceFolder, expFile3_40_4);
+		JGraphXDebugger demo_mri_40_5 = new JGraphXDebugger(pName3_40_5, ip, sourceFolder, expFile3_40_5);
+		JGraphXDebugger demo_mri_40_6 = new JGraphXDebugger(pName3_40_6, ip, sourceFolder, expFile3_40_6);
+		JGraphXDebugger demo_mri_40_7 = new JGraphXDebugger(pName3_40_7, ip, sourceFolder, expFile3_40_7);
 
-		Experiment demo_mri_55_1 = new Experiment(pName3_55_1, ip, sourceFolder, expFile3_55_1);
-		Experiment demo_mri_55_2 = new Experiment(pName3_55_2, ip, sourceFolder, expFile3_55_2);
-		Experiment demo_mri_55_3 = new Experiment(pName3_55_3, ip, sourceFolder, expFile3_55_3);
-		Experiment demo_mri_55_4 = new Experiment(pName3_55_4, ip, sourceFolder, expFile3_55_4);
-		Experiment demo_mri_55_5 = new Experiment(pName3_55_5, ip, sourceFolder, expFile3_55_5);
-		Experiment demo_mri_55_6 = new Experiment(pName3_55_6, ip, sourceFolder, expFile3_55_6);
-		Experiment demo_mri_55_7 = new Experiment(pName3_55_7, ip, sourceFolder, expFile3_55_7);
-		Experiment demo_mri_55_8 = new Experiment(pName3_55_8, ip, sourceFolder, expFile3_55_8);
+		JGraphXDebugger demo_mri_55_1 = new JGraphXDebugger(pName3_55_1, ip, sourceFolder, expFile3_55_1);
+		JGraphXDebugger demo_mri_55_2 = new JGraphXDebugger(pName3_55_2, ip, sourceFolder, expFile3_55_2);
+		JGraphXDebugger demo_mri_55_3 = new JGraphXDebugger(pName3_55_3, ip, sourceFolder, expFile3_55_3);
+		JGraphXDebugger demo_mri_55_4 = new JGraphXDebugger(pName3_55_4, ip, sourceFolder, expFile3_55_4);
+		JGraphXDebugger demo_mri_55_5 = new JGraphXDebugger(pName3_55_5, ip, sourceFolder, expFile3_55_5);
+		JGraphXDebugger demo_mri_55_6 = new JGraphXDebugger(pName3_55_6, ip, sourceFolder, expFile3_55_6);
+		JGraphXDebugger demo_mri_55_7 = new JGraphXDebugger(pName3_55_7, ip, sourceFolder, expFile3_55_7);
+		JGraphXDebugger demo_mri_55_8 = new JGraphXDebugger(pName3_55_8, ip, sourceFolder, expFile3_55_8);
 
 //		LocalizationTechnique mri_dStar_35_1 = new DStar(43,1,"mri_Dstar");
 //		demo_mri_35_1.TYPE = 10;
@@ -299,17 +300,17 @@ public class Experiment extends SFL{
 //		demo_mri_55_5.TYPE = 24;
 //		demo_mri_55_5.debug(mri_dStar_55_5);
 		
-		LocalizationTechnique mri_dStar_55_6 = new DStar(95,1,"mri_DStar");
-		demo_mri_55_6.TYPE = 25;
-		demo_mri_55_6.debug(mri_dStar_55_6);
+//		LocalizationTechnique mri_dStar_55_6 = new DStar(95,1,"mri_DStar");
+//		demo_mri_55_6.TYPE = 25;
+//		demo_mri_55_6.debug(mri_dStar_55_6);
 //		
-//		LocalizationTechnique mri_dStar_55_7 = new DStar(95,1,"mri_DStar");
-//		demo_mri_55_7.TYPE = 26;
-//		demo_mri_55_7.debug(mri_dStar_55_7);
-//		
-//		LocalizationTechnique mri_dStar_55_8 = new DStar(95,1,"mri_DStar");
-//		demo_mri_55_8.TYPE = 27;
-//		demo_mri_55_8.debug(mri_dStar_55_8);	
+		LocalizationTechnique mri_dStar_55_7 = new DStar(95,1,"mri_DStar");
+		demo_mri_55_7.TYPE = 26;
+		demo_mri_55_7.debug(mri_dStar_55_7);
+		
+		LocalizationTechnique mri_dStar_55_8 = new DStar(95,1,"mri_DStar");
+		demo_mri_55_8.TYPE = 27;
+		demo_mri_55_8.debug(mri_dStar_55_8);	
 
 	}
 	
@@ -358,27 +359,27 @@ public class Experiment extends SFL{
 		String expFile3_55_7 = "/home/wizehack/exp/docFile_mri_55_7.csv";
 		String expFile3_55_8 = "/home/wizehack/exp/docFile_mri_55_8.csv";
 
-		Experiment demo_mri_30 = new Experiment(pName3_30, ip, sourceFolder, expFile3_30);
-		Experiment demo_mri_35_1 = new Experiment(pName3_35_1, ip, sourceFolder, expFile3_35_1);
-		Experiment demo_mri_35_2 = new Experiment(pName3_35_2, ip, sourceFolder, expFile3_35_2);
-		Experiment demo_mri_35_3 = new Experiment(pName3_35_3, ip, sourceFolder, expFile3_35_3);
+		JGraphXDebugger demo_mri_30 = new JGraphXDebugger(pName3_30, ip, sourceFolder, expFile3_30);
+		JGraphXDebugger demo_mri_35_1 = new JGraphXDebugger(pName3_35_1, ip, sourceFolder, expFile3_35_1);
+		JGraphXDebugger demo_mri_35_2 = new JGraphXDebugger(pName3_35_2, ip, sourceFolder, expFile3_35_2);
+		JGraphXDebugger demo_mri_35_3 = new JGraphXDebugger(pName3_35_3, ip, sourceFolder, expFile3_35_3);
 
-		Experiment demo_mri_40_1 = new Experiment(pName3_40_1, ip, sourceFolder, expFile3_40_1);
-		Experiment demo_mri_40_2 = new Experiment(pName3_40_2, ip, sourceFolder, expFile3_40_2);
-		Experiment demo_mri_40_3 = new Experiment(pName3_40_3, ip, sourceFolder, expFile3_40_3);
-		Experiment demo_mri_40_4 = new Experiment(pName3_40_4, ip, sourceFolder, expFile3_40_4);
-		Experiment demo_mri_40_5 = new Experiment(pName3_40_5, ip, sourceFolder, expFile3_40_5);
-		Experiment demo_mri_40_6 = new Experiment(pName3_40_6, ip, sourceFolder, expFile3_40_6);
-		Experiment demo_mri_40_7 = new Experiment(pName3_40_7, ip, sourceFolder, expFile3_40_7);
+		JGraphXDebugger demo_mri_40_1 = new JGraphXDebugger(pName3_40_1, ip, sourceFolder, expFile3_40_1);
+		JGraphXDebugger demo_mri_40_2 = new JGraphXDebugger(pName3_40_2, ip, sourceFolder, expFile3_40_2);
+		JGraphXDebugger demo_mri_40_3 = new JGraphXDebugger(pName3_40_3, ip, sourceFolder, expFile3_40_3);
+		JGraphXDebugger demo_mri_40_4 = new JGraphXDebugger(pName3_40_4, ip, sourceFolder, expFile3_40_4);
+		JGraphXDebugger demo_mri_40_5 = new JGraphXDebugger(pName3_40_5, ip, sourceFolder, expFile3_40_5);
+		JGraphXDebugger demo_mri_40_6 = new JGraphXDebugger(pName3_40_6, ip, sourceFolder, expFile3_40_6);
+		JGraphXDebugger demo_mri_40_7 = new JGraphXDebugger(pName3_40_7, ip, sourceFolder, expFile3_40_7);
 
-		Experiment demo_mri_55_1 = new Experiment(pName3_55_1, ip, sourceFolder, expFile3_55_1);
-		Experiment demo_mri_55_2 = new Experiment(pName3_55_2, ip, sourceFolder, expFile3_55_2);
-		Experiment demo_mri_55_3 = new Experiment(pName3_55_3, ip, sourceFolder, expFile3_55_3);
-		Experiment demo_mri_55_4 = new Experiment(pName3_55_4, ip, sourceFolder, expFile3_55_4);
-		Experiment demo_mri_55_5 = new Experiment(pName3_55_5, ip, sourceFolder, expFile3_55_5);
-		Experiment demo_mri_55_6 = new Experiment(pName3_55_6, ip, sourceFolder, expFile3_55_6);
-		Experiment demo_mri_55_7 = new Experiment(pName3_55_7, ip, sourceFolder, expFile3_55_7);
-		Experiment demo_mri_55_8 = new Experiment(pName3_55_8, ip, sourceFolder, expFile3_55_8);
+		JGraphXDebugger demo_mri_55_1 = new JGraphXDebugger(pName3_55_1, ip, sourceFolder, expFile3_55_1);
+		JGraphXDebugger demo_mri_55_2 = new JGraphXDebugger(pName3_55_2, ip, sourceFolder, expFile3_55_2);
+		JGraphXDebugger demo_mri_55_3 = new JGraphXDebugger(pName3_55_3, ip, sourceFolder, expFile3_55_3);
+		JGraphXDebugger demo_mri_55_4 = new JGraphXDebugger(pName3_55_4, ip, sourceFolder, expFile3_55_4);
+		JGraphXDebugger demo_mri_55_5 = new JGraphXDebugger(pName3_55_5, ip, sourceFolder, expFile3_55_5);
+		JGraphXDebugger demo_mri_55_6 = new JGraphXDebugger(pName3_55_6, ip, sourceFolder, expFile3_55_6);
+		JGraphXDebugger demo_mri_55_7 = new JGraphXDebugger(pName3_55_7, ip, sourceFolder, expFile3_55_7);
+		JGraphXDebugger demo_mri_55_8 = new JGraphXDebugger(pName3_55_8, ip, sourceFolder, expFile3_55_8);
 
 		LocalizationTechnique mri_heuristicIII_35_1 = new HeuristicIII(43,1,"mri_HeuristicIII");
 		demo_mri_35_1.TYPE = 10;
@@ -500,27 +501,27 @@ public class Experiment extends SFL{
 		String expFile3_55_7 = "/home/wizehack/exp/docFile_mri_55_7.csv";
 		String expFile3_55_8 = "/home/wizehack/exp/docFile_mri_55_8.csv";
 
-		Experiment demo_mri_30 = new Experiment(pName3_30, ip, sourceFolder, expFile3_30);
-		Experiment demo_mri_35_1 = new Experiment(pName3_35_1, ip, sourceFolder, expFile3_35_1);
-		Experiment demo_mri_35_2 = new Experiment(pName3_35_2, ip, sourceFolder, expFile3_35_2);
-		Experiment demo_mri_35_3 = new Experiment(pName3_35_3, ip, sourceFolder, expFile3_35_3);
+		JGraphXDebugger demo_mri_30 = new JGraphXDebugger(pName3_30, ip, sourceFolder, expFile3_30);
+		JGraphXDebugger demo_mri_35_1 = new JGraphXDebugger(pName3_35_1, ip, sourceFolder, expFile3_35_1);
+		JGraphXDebugger demo_mri_35_2 = new JGraphXDebugger(pName3_35_2, ip, sourceFolder, expFile3_35_2);
+		JGraphXDebugger demo_mri_35_3 = new JGraphXDebugger(pName3_35_3, ip, sourceFolder, expFile3_35_3);
 
-		Experiment demo_mri_40_1 = new Experiment(pName3_40_1, ip, sourceFolder, expFile3_40_1);
-		Experiment demo_mri_40_2 = new Experiment(pName3_40_2, ip, sourceFolder, expFile3_40_2);
-		Experiment demo_mri_40_3 = new Experiment(pName3_40_3, ip, sourceFolder, expFile3_40_3);
-		Experiment demo_mri_40_4 = new Experiment(pName3_40_4, ip, sourceFolder, expFile3_40_4);
-		Experiment demo_mri_40_5 = new Experiment(pName3_40_5, ip, sourceFolder, expFile3_40_5);
-		Experiment demo_mri_40_6 = new Experiment(pName3_40_6, ip, sourceFolder, expFile3_40_6);
-		Experiment demo_mri_40_7 = new Experiment(pName3_40_7, ip, sourceFolder, expFile3_40_7);
+		JGraphXDebugger demo_mri_40_1 = new JGraphXDebugger(pName3_40_1, ip, sourceFolder, expFile3_40_1);
+		JGraphXDebugger demo_mri_40_2 = new JGraphXDebugger(pName3_40_2, ip, sourceFolder, expFile3_40_2);
+		JGraphXDebugger demo_mri_40_3 = new JGraphXDebugger(pName3_40_3, ip, sourceFolder, expFile3_40_3);
+		JGraphXDebugger demo_mri_40_4 = new JGraphXDebugger(pName3_40_4, ip, sourceFolder, expFile3_40_4);
+		JGraphXDebugger demo_mri_40_5 = new JGraphXDebugger(pName3_40_5, ip, sourceFolder, expFile3_40_5);
+		JGraphXDebugger demo_mri_40_6 = new JGraphXDebugger(pName3_40_6, ip, sourceFolder, expFile3_40_6);
+		JGraphXDebugger demo_mri_40_7 = new JGraphXDebugger(pName3_40_7, ip, sourceFolder, expFile3_40_7);
 
-		Experiment demo_mri_55_1 = new Experiment(pName3_55_1, ip, sourceFolder, expFile3_55_1);
-		Experiment demo_mri_55_2 = new Experiment(pName3_55_2, ip, sourceFolder, expFile3_55_2);
-		Experiment demo_mri_55_3 = new Experiment(pName3_55_3, ip, sourceFolder, expFile3_55_3);
-		Experiment demo_mri_55_4 = new Experiment(pName3_55_4, ip, sourceFolder, expFile3_55_4);
-		Experiment demo_mri_55_5 = new Experiment(pName3_55_5, ip, sourceFolder, expFile3_55_5);
-		Experiment demo_mri_55_6 = new Experiment(pName3_55_6, ip, sourceFolder, expFile3_55_6);
-		Experiment demo_mri_55_7 = new Experiment(pName3_55_7, ip, sourceFolder, expFile3_55_7);
-		Experiment demo_mri_55_8 = new Experiment(pName3_55_8, ip, sourceFolder, expFile3_55_8);
+		JGraphXDebugger demo_mri_55_1 = new JGraphXDebugger(pName3_55_1, ip, sourceFolder, expFile3_55_1);
+		JGraphXDebugger demo_mri_55_2 = new JGraphXDebugger(pName3_55_2, ip, sourceFolder, expFile3_55_2);
+		JGraphXDebugger demo_mri_55_3 = new JGraphXDebugger(pName3_55_3, ip, sourceFolder, expFile3_55_3);
+		JGraphXDebugger demo_mri_55_4 = new JGraphXDebugger(pName3_55_4, ip, sourceFolder, expFile3_55_4);
+		JGraphXDebugger demo_mri_55_5 = new JGraphXDebugger(pName3_55_5, ip, sourceFolder, expFile3_55_5);
+		JGraphXDebugger demo_mri_55_6 = new JGraphXDebugger(pName3_55_6, ip, sourceFolder, expFile3_55_6);
+		JGraphXDebugger demo_mri_55_7 = new JGraphXDebugger(pName3_55_7, ip, sourceFolder, expFile3_55_7);
+		JGraphXDebugger demo_mri_55_8 = new JGraphXDebugger(pName3_55_8, ip, sourceFolder, expFile3_55_8);
 
 		/*
 		LocalizationTechnique mri_tarantula_30 = new Tarantula(11,1,"mri_tarantula");
@@ -614,10 +615,10 @@ public class Experiment extends SFL{
 		String expFile2_40 = "/home/wizehack/exp/docFile_HeuristicIII_40.csv";
 		String expFile2_55 = "/home/wizehack/exp/docFile_HeuristicIII_55.csv";
 
-		Experiment demo_HeuristicIII_30 = new Experiment(pName2_30, ip, sourceFolder, expFile2_30);
-		Experiment demo_HeuristicIII_35 = new Experiment(pName2_35, ip, sourceFolder, expFile2_35);
-		Experiment demo_HeuristicIII_40 = new Experiment(pName2_40, ip, sourceFolder, expFile2_40);
-		Experiment demo_HeuristicIII_55 = new Experiment(pName2_55, ip, sourceFolder, expFile2_55);
+		JGraphXDebugger demo_HeuristicIII_30 = new JGraphXDebugger(pName2_30, ip, sourceFolder, expFile2_30);
+		JGraphXDebugger demo_HeuristicIII_35 = new JGraphXDebugger(pName2_35, ip, sourceFolder, expFile2_35);
+		JGraphXDebugger demo_HeuristicIII_40 = new JGraphXDebugger(pName2_40, ip, sourceFolder, expFile2_40);
+		JGraphXDebugger demo_HeuristicIII_55 = new JGraphXDebugger(pName2_55, ip, sourceFolder, expFile2_55);
 		
 		LocalizationTechnique heuristicIII_30 = new HeuristicIII(11,1,"HeuristicIII");
 		LocalizationTechnique heuristicII_35 = new HeuristicIII(42,3,"HeuristicIII");
@@ -649,10 +650,10 @@ public class Experiment extends SFL{
 		String expFile2_40 = "/home/wizehack/exp/docFile_Dstar_40.csv";
 		String expFile2_55 = "/home/wizehack/exp/docFile_Dstar_55.csv";
 
-		Experiment demo_Dstar_30 = new Experiment(pName2_30, ip, sourceFolder, expFile2_30);
-		Experiment demo_Dstar_35 = new Experiment(pName2_35, ip, sourceFolder, expFile2_35);
-		Experiment demo_Dstar_40 = new Experiment(pName2_40, ip, sourceFolder, expFile2_40);
-		Experiment demo_Dstar_55 = new Experiment(pName2_55, ip, sourceFolder, expFile2_55);
+		JGraphXDebugger demo_Dstar_30 = new JGraphXDebugger(pName2_30, ip, sourceFolder, expFile2_30);
+		JGraphXDebugger demo_Dstar_35 = new JGraphXDebugger(pName2_35, ip, sourceFolder, expFile2_35);
+		JGraphXDebugger demo_Dstar_40 = new JGraphXDebugger(pName2_40, ip, sourceFolder, expFile2_40);
+		JGraphXDebugger demo_Dstar_55 = new JGraphXDebugger(pName2_55, ip, sourceFolder, expFile2_55);
 		
 		LocalizationTechnique dStar_30 = new DStar(11,1,"dstar");
 		LocalizationTechnique dStar_35 = new DStar(42,3,"dstar");
@@ -683,10 +684,10 @@ public class Experiment extends SFL{
 		String expFile1_40 = "/home/wizehack/exp/docFile_Tarantula_40.csv";
 		String expFile1_55 = "/home/wizehack/exp/docFile_Tarantula_55.csv";
 
-		Experiment demo_tarantula_30 = new Experiment(pName1_30, ip, sourceFolder, expFile1_30);
-		Experiment demo_tarantula_35 = new Experiment(pName1_35, ip, sourceFolder, expFile1_35);
-		Experiment demo_tarantula_40 = new Experiment(pName1_40, ip, sourceFolder, expFile1_40);
-		Experiment demo_tarantula_55 = new Experiment(pName1_55, ip, sourceFolder, expFile1_55);
+		JGraphXDebugger demo_tarantula_30 = new JGraphXDebugger(pName1_30, ip, sourceFolder, expFile1_30);
+		JGraphXDebugger demo_tarantula_35 = new JGraphXDebugger(pName1_35, ip, sourceFolder, expFile1_35);
+		JGraphXDebugger demo_tarantula_40 = new JGraphXDebugger(pName1_40, ip, sourceFolder, expFile1_40);
+		JGraphXDebugger demo_tarantula_55 = new JGraphXDebugger(pName1_55, ip, sourceFolder, expFile1_55);
 		
 		LocalizationTechnique tarantula_30 = new Tarantula(11,1,"tarantula");
 		LocalizationTechnique tarantula_35 = new Tarantula(42,3,"tarantula");
