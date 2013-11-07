@@ -35,85 +35,85 @@ public class JGraphXDebugger extends SFL{
 		
 		//target
 		if(this.TYPE == 1){
-			covDir = "/home/wizehack/exp/target/30";
+			covDir = "/home/wizehack/exp/target/jGraphX/30";
 		} else if(this.TYPE == 2) {
-			covDir = "/home/wizehack/exp/target/35";
+			covDir = "/home/wizehack/exp/target/jGraphX/35";
 		} else if(this.TYPE == 3) {
-			covDir = "/home/wizehack/exp/target/40";
+			covDir = "/home/wizehack/exp/target/jGraphX/40";
 		} else if(this.TYPE == 4) {
-			covDir = "/home/wizehack/exp/target/55";
+			covDir = "/home/wizehack/exp/target/jGraphX/55";
 		} else if(this.TYPE == 5) {
-			covDir = "/home/wizehack/exp/target/30";
+			covDir = "/home/wizehack/exp/target/jGraphX/30";
 		} else if (this.TYPE == 6) {
-			covDir = "/home/wizehack/exp/target/35";
+			covDir = "/home/wizehack/exp/target/jGraphX/35";
 		} else if (this.TYPE == 7) {
-			covDir = "/home/wizehack/exp/target/40";
+			covDir = "/home/wizehack/exp/target/jGraphX/40";
 		} else if (this.TYPE == 8) {
-			covDir = "/home/wizehack/exp/target/55";
+			covDir = "/home/wizehack/exp/target/jGraphX/55";
 		} //mri 
 		
 		else if (this.TYPE == 9) {
-			covDir = "/home/wizehack/exp/mri/30";
+			covDir = "/home/wizehack/exp/mri/jGraphX/30";
 		} else if (this.TYPE == 10) { 
-			covDir = "/home/wizehack/exp/mri/35/1";
+			covDir = "/home/wizehack/exp/mri/jGraphX/35/1";
 		} else if (this.TYPE == 11) {
-			covDir = "/home/wizehack/exp/mri/35/2";		
+			covDir = "/home/wizehack/exp/mri/jGraphX/35/2";		
 		} else if (this.TYPE == 12) {
-			covDir = "/home/wizehack/exp/mri/35/3";
+			covDir = "/home/wizehack/exp/mri/jGraphX/35/3";
 		} else if (this.TYPE == 13) {
-			covDir = "/home/wizehack/exp/mri/40/1";
+			covDir = "/home/wizehack/exp/mri/jGraphX/40/1";
 		} else if (this.TYPE == 14) {
-			covDir = "/home/wizehack/exp/mri/40/2";
+			covDir = "/home/wizehack/exp/mri/jGraphX/40/2";
 
 		} else if (this.TYPE == 15) {
-			covDir = "/home/wizehack/exp/mri/40/3";
+			covDir = "/home/wizehack/exp/mri/jGraphX/40/3";
 
 		} else if (this.TYPE == 16) {
-			covDir = "/home/wizehack/exp/mri/40/4";
+			covDir = "/home/wizehack/exp/mri/jGraphX/40/4";
 
 		} else if (this.TYPE == 17) {
-			covDir = "/home/wizehack/exp/mri/40/5";
+			covDir = "/home/wizehack/exp/mri/jGraphX/40/5";
 
 		} else if (this.TYPE == 18) {
-			covDir = "/home/wizehack/exp/mri/40/6";
+			covDir = "/home/wizehack/exp/mri/jGraphX/40/6";
 
 		} else if (this.TYPE == 19) {
-			covDir = "/home/wizehack/exp/mri/40/7";
+			covDir = "/home/wizehack/exp/mri/jGraphX/40/7";
 
 		} else if (this.TYPE == 20) {
-			covDir = "/home/wizehack/exp/mri/55/1";
+			covDir = "/home/wizehack/exp/mri/jGraphX/55/1";
 
 		} else if (this.TYPE == 21) {
-			covDir = "/home/wizehack/exp/mri/55/2";
+			covDir = "/home/wizehack/exp/mri/jGraphX/55/2";
 
 		} else if (this.TYPE == 22) {
-			covDir = "/home/wizehack/exp/mri/55/3";
+			covDir = "/home/wizehack/exp/mri/jGraphX/55/3";
 
 		} else if (this.TYPE == 23) {
-			covDir = "/home/wizehack/exp/mri/55/4";
+			covDir = "/home/wizehack/exp/mri/jGraphX/55/4";
 
 		} else if (this.TYPE == 24) {
-			covDir = "/home/wizehack/exp/mri/55/5";
+			covDir = "/home/wizehack/exp/mri/jGraphX/55/5";
 
 		} else if (this.TYPE == 25) {
-			covDir = "/home/wizehack/exp/mri/55/6";
+			covDir = "/home/wizehack/exp/mri/jGraphX/55/6";
 			
 		} else if (this.TYPE == 26) {
-			covDir = "/home/wizehack/exp/mri/55/7";
+			covDir = "/home/wizehack/exp/mri/jGraphX/55/7";
 
 		} else if (this.TYPE == 27){
-			covDir = "/home/wizehack/exp/mri/55/8";
+			covDir = "/home/wizehack/exp/mri/jGraphX/55/8";
 		} 		
 		
 		// heuristic III
 		else if(this.TYPE == 28) {
-			covDir = "/home/wizehack/exp/target/30";
+			covDir = "/home/wizehack/exp/target/jGraphX/30";
 		} else if (this.TYPE == 29) {
-			covDir = "/home/wizehack/exp/target/35";
+			covDir = "/home/wizehack/exp/target/jGraphX/30";
 		} else if (this.TYPE == 30) {
-			covDir = "/home/wizehack/exp/target/40";
+			covDir = "/home/wizehack/exp/target/jGraphX/30";
 		} else if (this.TYPE == 31) {
-			covDir = "/home/wizehack/exp/target/55";
+			covDir = "/home/wizehack/exp/target/jGraphX/30";
 		}	else {
 			System.out.println("error!!!! >>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		} 
@@ -156,16 +156,16 @@ public class JGraphXDebugger extends SFL{
 	
 	public static void main(String[] args) {
 		String ip = "127.0.0.1";
-		String sourceFolder = "/home/wizehack/develop/workspace/jGraphX/src";
+		String sourceFolder = "/home/wizehack/develop/workspace/jGraphX";
 
 		//TARGET
-//		tarantula(ip, sourceFolder);
+		tarantula(ip, sourceFolder);
 
-//		dStar(ip, sourceFolder);
+		dStar(ip, sourceFolder);
 		
-//		heuristicIII(ip, sourceFolder);
+		heuristicIII(ip, sourceFolder);
 		
-		mriDstar(ip, sourceFolder);
+//		mriDstar(ip, sourceFolder);
 		
 //		mriHeuristicIII(ip, sourceFolder);
 		//MRI METHODOLOGY
@@ -304,13 +304,19 @@ public class JGraphXDebugger extends SFL{
 //		demo_mri_55_6.TYPE = 25;
 //		demo_mri_55_6.debug(mri_dStar_55_6);
 //		
-		LocalizationTechnique mri_dStar_55_7 = new DStar(95,1,"mri_DStar");
-		demo_mri_55_7.TYPE = 26;
-		demo_mri_55_7.debug(mri_dStar_55_7);
-		
-		LocalizationTechnique mri_dStar_55_8 = new DStar(95,1,"mri_DStar");
-		demo_mri_55_8.TYPE = 27;
-		demo_mri_55_8.debug(mri_dStar_55_8);	
+//		LocalizationTechnique mri_dStar_55_7 = new DStar(95,1,"mri_DStar");
+//		demo_mri_55_7.TYPE = 26;
+//		demo_mri_55_7.debug(mri_dStar_55_7);
+//		
+//		LocalizationTechnique mri_dStar_55_8 = new DStar(95,1,"mri_DStar");
+//		demo_mri_55_8.TYPE = 27;
+//		d//		LocalizationTechnique mri_dStar_55_7 = new DStar(95,1,"mri_DStar");
+//		demo_mri_55_7.TYPE = 26;
+//		demo_mri_55_7.debug(mri_dStar_55_7);
+//		
+//		LocalizationTechnique mri_dStar_55_8 = new DStar(95,1,"mri_DStar");
+//		demo_mri_55_8.TYPE = 27;
+//		demo_mri_55_8.debug(mri_dStar_55_8);	emo_mri_55_8.debug(mri_dStar_55_8);	
 
 	}
 	
@@ -628,14 +634,14 @@ public class JGraphXDebugger extends SFL{
 		demo_HeuristicIII_30.TYPE = 28;
 		demo_HeuristicIII_30.debug(heuristicIII_30);
 		
-		demo_HeuristicIII_35.TYPE = 29;
-		demo_HeuristicIII_35.debug(heuristicII_35);
-		
-		demo_HeuristicIII_40.TYPE = 30;
-		demo_HeuristicIII_40.debug(heuristicII_40);
-		
-		demo_HeuristicIII_55.TYPE = 31;
-		demo_HeuristicIII_55.debug(heuristicII_55);
+//		demo_HeuristicIII_35.TYPE = 29;
+//		demo_HeuristicIII_35.debug(heuristicII_35);
+//		
+//		demo_HeuristicIII_40.TYPE = 30;
+//		demo_HeuristicIII_40.debug(heuristicII_40);
+//		
+//		demo_HeuristicIII_55.TYPE = 31;
+//		demo_HeuristicIII_55.debug(heuristicII_55);
 	}
 
 	
@@ -663,14 +669,14 @@ public class JGraphXDebugger extends SFL{
 		demo_Dstar_30.TYPE = 5;
 		demo_Dstar_30.debug(dStar_30);
 		
-		demo_Dstar_35.TYPE = 6;
-		demo_Dstar_35.debug(dStar_35);
-		
-		demo_Dstar_40.TYPE = 7;
-		demo_Dstar_40.debug(dStar_40);
-		
-		demo_Dstar_55.TYPE = 8;
-		demo_Dstar_55.debug(dStar_55);
+//		demo_Dstar_35.TYPE = 6;
+//		demo_Dstar_35.debug(dStar_35);
+//		
+//		demo_Dstar_40.TYPE = 7;
+//		demo_Dstar_40.debug(dStar_40);
+//		
+//		demo_Dstar_55.TYPE = 8;
+//		demo_Dstar_55.debug(dStar_55);
 	}
 
 	private static void tarantula(String ip, String sourceFolder) {
@@ -695,17 +701,17 @@ public class JGraphXDebugger extends SFL{
 		LocalizationTechnique tarantula_55 = new Tarantula(95,8,"tarantula");
 
 		
-//		demo_tarantula_30.TYPE = 1;
-//		demo_tarantula_30.debug(tarantula_30);
+		demo_tarantula_30.TYPE = 1;
+		demo_tarantula_30.debug(tarantula_30);
 		
-		demo_tarantula_35.TYPE = 2;
-		demo_tarantula_35.debug(tarantula_35);
-
-		demo_tarantula_40.TYPE = 3;
-		demo_tarantula_40.debug(tarantula_40);
-		
-		demo_tarantula_55.TYPE = 4;
-		demo_tarantula_55.debug(tarantula_55);
+//		demo_tarantula_35.TYPE = 2;
+//		demo_tarantula_35.debug(tarantula_35);
+//
+//		demo_tarantula_40.TYPE = 3;
+//		demo_tarantula_40.debug(tarantula_40);
+//		
+//		demo_tarantula_55.TYPE = 4;
+//		demo_tarantula_55.debug(tarantula_55);
 		
 	}
 
