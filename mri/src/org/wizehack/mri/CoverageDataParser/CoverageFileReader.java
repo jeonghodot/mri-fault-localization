@@ -60,32 +60,60 @@ public class CoverageFileReader {
 	public List<Coverage> getCoverage(File xmlFile){
 		
 		XMLTreeTraverser xtt = new XMLTreeTraverser(xmlFile);
-		NodeList nodeList = xtt.getNodeList("package");
+		NodeList groupList = xtt.getNodeList("group");
+		Element project = (Element) groupList.item(0);
+		String projectName = project.getAttribute("name");	
+		NodeList subGroupList = project.getElementsByTagName("group");	
 		List<Coverage> coverageList = new ArrayList<Coverage>();
-		
-		for(int i=0; i<nodeList.getLength(); i++){
-			
-			Element newRoot = (Element) nodeList.item(i);
-			String pkgPath = this.sourceFolder + newRoot.getAttribute("name");
-			NodeList filteredNodeList = newRoot.getElementsByTagName("sourcefile");	
-			
-			for(int j=0; j<filteredNodeList.getLength(); j++){
-				
-				Element sourceFileElement = (Element) filteredNodeList.item(j);
-//				System.out.println(sourceFileElement.getAttribute("name"));
-				List<Coverage> covList = scanLine(sourceFileElement, pkgPath);
-				
-				for(int k=0; k<covList.size(); k++){
-					Coverage cov = covList.get(k);
-					double statementId = dManager.getStatementId(cov.getFile(), cov.getNumber());
+	
+		int point = this.sourceFolder.lastIndexOf(projectName);
+		String sourceFolderRoot = this.sourceFolder.substring(0, point);
 
-					cov.setStatementId(statementId);
-					coverageList.add(cov);
-				}
-//				srcDir.add(sf);
+		for(int x = 0; x < subGroupList.getLength(); x++){
+			Element subGroup = (Element) subGroupList.item(x);
+			String sourcePath = sourceFolderRoot + projectName + File.separator + subGroup.getAttribute("name");
+			
+//			NodeList nodeList = xtt.getNodeList("package");
+			NodeList nodeList = subGroup.getElementsByTagName("package");	
+			
+			for(int i=0; i<nodeList.getLength(); i++){
 				
-			}
-		}
+				Element newRoot = (Element) nodeList.item(i);
+//				String pkgPath = this.sourceFolder + newRoot.getAttribute("name");
+				String pkgPath = sourcePath + File.separator + newRoot.getAttribute("name");
+				
+//				System.out.println("pkgPath: " + pkgPath);
+				NodeList filteredNodeList = newRoot.getElementsByTagName("sourcefile");	
+				
+				for(int j=0; j<filteredNodeList.getLength(); j++){
+					
+					Element sourceFileElement = (Element) filteredNodeList.item(j);
+//					System.out.println(sourceFileElement.getAttribute("name"));
+					List<Coverage> covList = scanLine(sourceFileElement, pkgPath);
+					
+					for(int k=0; k<covList.size(); k++){
+						Coverage cov = covList.get(k);
+						double statementId=0;
+						try {
+							statementId = dManager.getStatementId(cov.getFile(), cov.getNumber());
+						} catch (NullPointerException e1){
+							e1.printStackTrace();
+							k--;
+							try {
+								Thread.sleep(10);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							continue;
+						}
+						cov.setStatementId(statementId);
+						coverageList.add(cov);
+					}// for k					
+				}// for j
+			}// for i
+
+		}// for x
 		
 		return coverageList;
 	}

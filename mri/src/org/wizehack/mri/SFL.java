@@ -81,7 +81,7 @@ public abstract class SFL {
 		
 		this.exportToTextDoc(this.exportFile);
 		System.out.println("completed ");
-		
+		System.out.println("========================= ");
 	}
 	
 	public void probe(String sourceFolder, TestSuite testSuite) {
