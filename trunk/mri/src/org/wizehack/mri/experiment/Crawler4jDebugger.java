@@ -209,7 +209,7 @@ public class Crawler4jDebugger extends SFL{
 		List<String> fList = fileListReader.readFiles(new File(covDir));
 
 		for(int i=0; i<fList.size(); i++){
-
+			
 			String name = fList.get(i);
 			name = super.getCoverageFileName(name);
 			

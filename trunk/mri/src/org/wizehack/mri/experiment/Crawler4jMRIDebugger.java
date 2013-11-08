@@ -9,10 +9,17 @@ import org.wizehack.mri.Test.TestCase;
 import org.wizehack.mri.Test.TestSuite;
 import org.wizehack.mri.fl.LocalizationTechnique;
 import org.wizehack.mri.fl.Tarantula;
+import org.wizehack.mri.fl.WizeFLII;
 import org.wizehack.mri.io.FileListReader;
+import org.wizehack.mri.repo.DataManager;
+import org.wizehack.mri.repo.Result;
+
+import com.mongodb.DB;
+import com.mongodb.Mongo;
 
 public class Crawler4jMRIDebugger extends SFL {
 	public int TYPE = 0;
+	private static DataManager dManager = null;
 
 	public Crawler4jMRIDebugger(String projectName, String repositoryIp,
 			String sourceFolder, String exportFile) {
@@ -101,8 +108,324 @@ public class Crawler4jMRIDebugger extends SFL {
 	public static void main(String[] args) {
 		String ip = "127.0.0.1";
 		String projectPath = "/home/wizehack/develop/workspace/crawler4j";
-		
+		dManager = new DataManager();
+
 		mriTarantulaFristPhase(ip, projectPath);
+		mriTarantulaSecondPhase();
+	}
+	
+	private static void mriTarantulaSecondPhase(){
+		mri_30(2);
+		mri_50(3);
+		mri_60(5);
+		mri_75(7);
+	}
+	
+	private static void mri_30(int numberOfTestGroup){
+		WizeFLII wizeFlII = new WizeFLII("tarantula", 2);
+
+		String db_30_1 = "CodeTest_Tarantula_30_1";
+		String db_30_2 = "CodeTest_Tarantula_30_2";		
+		
+		Mongo mongo = null;
+		try {
+			mongo = dManager.getConnection();
+			DB db_Tarantula_30_1 = mongo.getDB(db_30_1);
+			List<Result> resultList_30_1 = dManager.getLocalizationCollection(db_Tarantula_30_1);
+			
+			DB db_Tarantula_30_2 = mongo.getDB(db_30_2);
+			List<Result> resultList_30_2 = dManager.getLocalizationCollection(db_Tarantula_30_2);
+			
+			double t1 = wizeFlII.getThreshold(resultList_30_1);
+			double t2 = wizeFlII.getThreshold(resultList_30_2);
+
+			for(int i=0; i<resultList_30_1.size(); i++){
+				Result result1 = resultList_30_1.get(i);
+				Result result2 = resultList_30_2.get(i);
+				
+				
+				if(	(dManager.isCovered(db_Tarantula_30_1, new Double(result1.getStatementId())) && new Double(result1.getSuspiciousness()) < t1 ) ||
+						(dManager.isCovered(db_Tarantula_30_2, new Double(result2.getStatementId())) && new Double(result2.getSuspiciousness()) < t2 )
+					) {
+					
+					double id = new Double(result1.getStatementId());
+
+					double suspiciousness = ( new Double(result1.getSuspiciousness()) +
+							new Double(result2.getSuspiciousness())) / numberOfTestGroup;
+					dManager.updateSuspiciousness(db_Tarantula_30_1, id, suspiciousness);
+					dManager.updateSuspiciousness(db_Tarantula_30_2, id, suspiciousness);
+				}
+				
+			}
+			System.out.println("reporting...");
+			
+			String docFile1 = "/home/wizehack/exp/mri/mri_30_1.csv";
+			String docFile2 = "/home/wizehack/exp/mri/mri_30_2.csv";
+			
+			dManager.exportToTextDoc(db_Tarantula_30_1, docFile1);
+			dManager.exportToTextDoc(db_Tarantula_30_2, docFile2);
+
+		} finally {
+			System.out.println("Compeleted");
+			dManager.closeConnection(mongo);
+		}
+	}
+	
+	private static void mri_50(int numberOfTestGroup){
+		WizeFLII wizeFlII = new WizeFLII("tarantula", 3);
+
+		String db_50_1 = "CodeTest_Tarantula_50_1";
+		String db_50_2 = "CodeTest_Tarantula_50_2";		
+		String db_50_3 = "CodeTest_Tarantula_50_3";		
+
+		Mongo mongo = null;
+		try {
+			mongo = dManager.getConnection();
+			DB db_Tarantula_50_1 = mongo.getDB(db_50_1);
+			List<Result> resultList_50_1 = dManager.getLocalizationCollection(db_Tarantula_50_1);
+			
+			DB db_Tarantula_50_2 = mongo.getDB(db_50_2);
+			List<Result> resultList_50_2 = dManager.getLocalizationCollection(db_Tarantula_50_2);
+	
+			DB db_Tarantula_50_3 = mongo.getDB(db_50_3);
+			List<Result> resultList_50_3 = dManager.getLocalizationCollection(db_Tarantula_50_3);
+
+			
+			double t1 = wizeFlII.getThreshold(resultList_50_1);
+			double t2 = wizeFlII.getThreshold(resultList_50_2);
+			double t3 = wizeFlII.getThreshold(resultList_50_3);
+
+			for(int i=0; i<resultList_50_1.size(); i++){
+				Result result1 = resultList_50_1.get(i);
+				Result result2 = resultList_50_2.get(i);
+				Result result3 = resultList_50_3.get(i);
+
+				if(	(dManager.isCovered(db_Tarantula_50_1, new Double(result1.getStatementId())) && new Double(result1.getSuspiciousness()) < t1 ) ||
+						(dManager.isCovered(db_Tarantula_50_2, new Double(result2.getStatementId())) && new Double(result2.getSuspiciousness()) < t2 ) ||
+						(dManager.isCovered(db_Tarantula_50_3, new Double(result3.getStatementId())) && new Double(result3.getSuspiciousness()) < t3 )
+					) {
+					
+					double id = new Double(result1.getStatementId());
+
+					double suspiciousness = ( new Double(result1.getSuspiciousness()) +
+							new Double(result2.getSuspiciousness()) +
+							new Double(result3.getSuspiciousness()) ) / numberOfTestGroup;
+					dManager.updateSuspiciousness(db_Tarantula_50_1, id, suspiciousness);
+					dManager.updateSuspiciousness(db_Tarantula_50_2, id, suspiciousness);
+					dManager.updateSuspiciousness(db_Tarantula_50_3, id, suspiciousness);
+
+				}
+				
+			}
+			System.out.println("reporting...");
+			
+			String docFile1 = "/home/wizehack/exp/mri/mri_50_1.csv";
+			String docFile2 = "/home/wizehack/exp/mri/mri_50_2.csv";
+			String docFile3 = "/home/wizehack/exp/mri/mri_50_3.csv";
+
+			dManager.exportToTextDoc(db_Tarantula_50_1, docFile1);
+			dManager.exportToTextDoc(db_Tarantula_50_2, docFile2);
+			dManager.exportToTextDoc(db_Tarantula_50_3, docFile3);
+
+		} finally {
+			System.out.println("Compeleted");
+			dManager.closeConnection(mongo);
+		}
+	}
+	
+	private static void mri_60(int numberOfTestGroup) {
+		WizeFLII wizeFlII = new WizeFLII("tarantula", 5);
+
+		String db_60_1 = "CodeTest_Tarantula_60_1";
+		String db_60_2 = "CodeTest_Tarantula_60_2";		
+		String db_60_3 = "CodeTest_Tarantula_60_3";		
+		String db_60_4 = "CodeTest_Tarantula_60_4";		
+		String db_60_5 = "CodeTest_Tarantula_60_5";		
+
+		Mongo mongo = null;
+		try {
+			mongo = dManager.getConnection();
+			DB db_Tarantula_60_1 = mongo.getDB(db_60_1);
+			List<Result> resultList_60_1 = dManager.getLocalizationCollection(db_Tarantula_60_1);
+			
+			DB db_Tarantula_60_2 = mongo.getDB(db_60_2);
+			List<Result> resultList_60_2 = dManager.getLocalizationCollection(db_Tarantula_60_2);
+	
+			DB db_Tarantula_60_3 = mongo.getDB(db_60_3);
+			List<Result> resultList_60_3 = dManager.getLocalizationCollection(db_Tarantula_60_3);
+
+			DB db_Tarantula_60_4 = mongo.getDB(db_60_4);
+			List<Result> resultList_60_4 = dManager.getLocalizationCollection(db_Tarantula_60_4);
+			
+			DB db_Tarantula_60_5 = mongo.getDB(db_60_5);
+			List<Result> resultList_60_5 = dManager.getLocalizationCollection(db_Tarantula_60_5);
+		
+			double t1 = wizeFlII.getThreshold(resultList_60_1);
+			double t2 = wizeFlII.getThreshold(resultList_60_2);
+			double t3 = wizeFlII.getThreshold(resultList_60_3);
+			double t4 = wizeFlII.getThreshold(resultList_60_4);
+			double t5 = wizeFlII.getThreshold(resultList_60_5);
+
+			for(int i=0; i<resultList_60_1.size(); i++){
+				Result result1 = resultList_60_1.get(i);
+				Result result2 = resultList_60_2.get(i);
+				Result result3 = resultList_60_3.get(i);
+				Result result4 = resultList_60_4.get(i);
+				Result result5 = resultList_60_5.get(i);
+
+				if(	(dManager.isCovered(db_Tarantula_60_1, new Double(result1.getStatementId())) && new Double(result1.getSuspiciousness()) < t1 ) ||
+						(dManager.isCovered(db_Tarantula_60_2, new Double(result2.getStatementId())) && new Double(result2.getSuspiciousness()) < t2 ) ||
+						(dManager.isCovered(db_Tarantula_60_3, new Double(result3.getStatementId())) && new Double(result3.getSuspiciousness()) < t3 ) ||
+						(dManager.isCovered(db_Tarantula_60_4, new Double(result3.getStatementId())) && new Double(result3.getSuspiciousness()) < t4 ) ||
+						(dManager.isCovered(db_Tarantula_60_5, new Double(result3.getStatementId())) && new Double(result3.getSuspiciousness()) < t5 )
+					) {
+					
+					double id = new Double(result1.getStatementId());
+
+					double suspiciousness = ( new Double(result1.getSuspiciousness()) +
+							new Double(result2.getSuspiciousness()) +
+							new Double(result3.getSuspiciousness()) +
+							new Double(result4.getSuspiciousness()) +
+							new Double(result5.getSuspiciousness())
+					) / numberOfTestGroup;
+					dManager.updateSuspiciousness(db_Tarantula_60_1, id, suspiciousness);
+					dManager.updateSuspiciousness(db_Tarantula_60_2, id, suspiciousness);
+					dManager.updateSuspiciousness(db_Tarantula_60_3, id, suspiciousness);
+					dManager.updateSuspiciousness(db_Tarantula_60_4, id, suspiciousness);
+					dManager.updateSuspiciousness(db_Tarantula_60_5, id, suspiciousness);
+
+				}
+				
+			}
+			System.out.println("reporting...");
+			
+			String docFile1 = "/home/wizehack/exp/mri/mri_60_1.csv";
+			String docFile2 = "/home/wizehack/exp/mri/mri_60_2.csv";
+			String docFile3 = "/home/wizehack/exp/mri/mri_60_3.csv";
+			String docFile4 = "/home/wizehack/exp/mri/mri_60_4.csv";
+			String docFile5 = "/home/wizehack/exp/mri/mri_60_5.csv";
+
+			dManager.exportToTextDoc(db_Tarantula_60_1, docFile1);
+			dManager.exportToTextDoc(db_Tarantula_60_2, docFile2);
+			dManager.exportToTextDoc(db_Tarantula_60_3, docFile3);
+			dManager.exportToTextDoc(db_Tarantula_60_4, docFile4);
+			dManager.exportToTextDoc(db_Tarantula_60_5, docFile5);
+
+
+		} finally {
+			System.out.println("Compeleted");
+			dManager.closeConnection(mongo);
+		}
+	}
+	
+	private static void mri_75(int numberOfTestGroup){
+		WizeFLII wizeFlII = new WizeFLII("tarantula", 7);
+
+		String db_75_1 = "CodeTest_Tarantula_75_1";
+		String db_75_2 = "CodeTest_Tarantula_75_2";		
+		String db_75_3 = "CodeTest_Tarantula_75_3";		
+		String db_75_4 = "CodeTest_Tarantula_75_4";		
+		String db_75_5 = "CodeTest_Tarantula_75_5";		
+		String db_75_6 = "CodeTest_Tarantula_75_6";		
+		String db_75_7 = "CodeTest_Tarantula_75_7";		
+
+		Mongo mongo = null;
+		try {
+			mongo = dManager.getConnection();
+			DB db_Tarantula_75_1 = mongo.getDB(db_75_1);
+			List<Result> resultList_75_1 = dManager.getLocalizationCollection(db_Tarantula_75_1);
+			
+			DB db_Tarantula_75_2 = mongo.getDB(db_75_2);
+			List<Result> resultList_75_2 = dManager.getLocalizationCollection(db_Tarantula_75_2);
+	
+			DB db_Tarantula_75_3 = mongo.getDB(db_75_3);
+			List<Result> resultList_75_3 = dManager.getLocalizationCollection(db_Tarantula_75_3);
+
+			DB db_Tarantula_75_4 = mongo.getDB(db_75_4);
+			List<Result> resultList_75_4 = dManager.getLocalizationCollection(db_Tarantula_75_4);
+			
+			DB db_Tarantula_75_5 = mongo.getDB(db_75_5);
+			List<Result> resultList_75_5 = dManager.getLocalizationCollection(db_Tarantula_75_5);
+
+			DB db_Tarantula_75_6 = mongo.getDB(db_75_6);
+			List<Result> resultList_75_6 = dManager.getLocalizationCollection(db_Tarantula_75_6);
+
+			DB db_Tarantula_75_7 = mongo.getDB(db_75_7);
+			List<Result> resultList_75_7 = dManager.getLocalizationCollection(db_Tarantula_75_7);
+
+			double t1 = wizeFlII.getThreshold(resultList_75_1);
+			double t2 = wizeFlII.getThreshold(resultList_75_2);
+			double t3 = wizeFlII.getThreshold(resultList_75_3);
+			double t4 = wizeFlII.getThreshold(resultList_75_4);
+			double t5 = wizeFlII.getThreshold(resultList_75_5);
+			double t6 = wizeFlII.getThreshold(resultList_75_6);
+			double t7 = wizeFlII.getThreshold(resultList_75_7);
+
+			for(int i=0; i<resultList_75_1.size(); i++){
+				Result result1 = resultList_75_1.get(i);
+				Result result2 = resultList_75_2.get(i);
+				Result result3 = resultList_75_3.get(i);
+				Result result4 = resultList_75_4.get(i);
+				Result result5 = resultList_75_5.get(i);
+				Result result6 = resultList_75_6.get(i);
+				Result result7 = resultList_75_7.get(i);
+
+				if(	(dManager.isCovered(db_Tarantula_75_1, new Double(result1.getStatementId())) && new Double(result1.getSuspiciousness()) < t1 ) ||
+						(dManager.isCovered(db_Tarantula_75_2, new Double(result2.getStatementId())) && new Double(result2.getSuspiciousness()) < t2 ) ||
+						(dManager.isCovered(db_Tarantula_75_3, new Double(result3.getStatementId())) && new Double(result3.getSuspiciousness()) < t3 ) ||
+						(dManager.isCovered(db_Tarantula_75_4, new Double(result3.getStatementId())) && new Double(result3.getSuspiciousness()) < t4 ) ||
+						(dManager.isCovered(db_Tarantula_75_5, new Double(result3.getStatementId())) && new Double(result3.getSuspiciousness()) < t5 ) ||
+						(dManager.isCovered(db_Tarantula_75_6, new Double(result3.getStatementId())) && new Double(result3.getSuspiciousness()) < t6 ) ||
+						(dManager.isCovered(db_Tarantula_75_7, new Double(result3.getStatementId())) && new Double(result3.getSuspiciousness()) < t7 )
+					) {
+					
+					double id = new Double(result1.getStatementId());
+
+					double suspiciousness = ( new Double(result1.getSuspiciousness()) +
+							new Double(result2.getSuspiciousness()) +
+							new Double(result3.getSuspiciousness()) +
+							new Double(result4.getSuspiciousness()) +
+							new Double(result5.getSuspiciousness()) +
+							new Double(result6.getSuspiciousness()) +
+							new Double(result7.getSuspiciousness())
+
+					) / numberOfTestGroup;
+					dManager.updateSuspiciousness(db_Tarantula_75_1, id, suspiciousness);
+					dManager.updateSuspiciousness(db_Tarantula_75_2, id, suspiciousness);
+					dManager.updateSuspiciousness(db_Tarantula_75_3, id, suspiciousness);
+					dManager.updateSuspiciousness(db_Tarantula_75_4, id, suspiciousness);
+					dManager.updateSuspiciousness(db_Tarantula_75_5, id, suspiciousness);
+					dManager.updateSuspiciousness(db_Tarantula_75_6, id, suspiciousness);
+					dManager.updateSuspiciousness(db_Tarantula_75_7, id, suspiciousness);
+
+
+				}
+				
+			}
+			System.out.println("reporting...");
+			
+			String docFile1 = "/home/wizehack/exp/mri/mri_75_1.csv";
+			String docFile2 = "/home/wizehack/exp/mri/mri_75_2.csv";
+			String docFile3 = "/home/wizehack/exp/mri/mri_75_3.csv";
+			String docFile4 = "/home/wizehack/exp/mri/mri_75_4.csv";
+			String docFile5 = "/home/wizehack/exp/mri/mri_75_5.csv";
+			String docFile6 = "/home/wizehack/exp/mri/mri_75_6.csv";
+			String docFile7 = "/home/wizehack/exp/mri/mri_75_7.csv";
+
+			dManager.exportToTextDoc(db_Tarantula_75_1, docFile1);
+			dManager.exportToTextDoc(db_Tarantula_75_2, docFile2);
+			dManager.exportToTextDoc(db_Tarantula_75_3, docFile3);
+			dManager.exportToTextDoc(db_Tarantula_75_4, docFile4);
+			dManager.exportToTextDoc(db_Tarantula_75_5, docFile5);
+			dManager.exportToTextDoc(db_Tarantula_75_6, docFile6);
+			dManager.exportToTextDoc(db_Tarantula_75_7, docFile7);
+
+
+
+		} finally {
+			System.out.println("Compeleted");
+			dManager.closeConnection(mongo);
+		}
 	}
 
 	private static void mriTarantulaFristPhase(String ip, String sourceFolder){
