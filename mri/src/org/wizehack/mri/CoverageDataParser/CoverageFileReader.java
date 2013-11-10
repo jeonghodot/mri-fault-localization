@@ -124,17 +124,19 @@ public class CoverageFileReader {
 		
 		NodeList cNodeList = element.getChildNodes();
 		List<Coverage> coverageList = new ArrayList<Coverage>();
-		
+//		System.out.println("==================");
 		for(int j=0; j < cNodeList.getLength(); j++){
 			Node cNode = cNodeList.item(j);
 			if(cNode.getNodeName().matches("line")){
 				Element cElement = (Element) cNode; 
 				
-				if(cElement.getAttribute("mi").matches("0") ){
+				if(cElement.getAttribute("mi").matches("0") || !(cElement.getAttribute("ci").matches("0"))){
 					Coverage coverage = new Coverage();
 					coverage.setFile(srcFile);
 					coverage.setPassed(passed);
 					coverage.setTcId(tcId);
+//					System.out.println(tcId + " : " + srcFile + " : " + new Integer(cElement.getAttribute("nr")));
+//					System.out.println();
 					coverage.setNumber(new Integer(cElement.getAttribute("nr")));
 					coverageList.add(coverage);
 				} 
