@@ -2,14 +2,14 @@ package org.wizehack.mri.fl;
 
 
 public abstract class LocalizationTechnique {
-	private int totalPassed;
-	private int totalFailed;
+	private double totalPassed;
+	private double totalFailed;
 	
 	private String techniqueName;
-	private int passed;
-	private int failed;
+	private double passed;
+	private double failed;
 		
-	public LocalizationTechnique(int totalPassed, int totalFailed, String techniqueName){
+	public LocalizationTechnique(double totalPassed, double totalFailed, String techniqueName){
 		super();
 		this.totalPassed = totalPassed;
 		this.totalFailed = totalFailed;
@@ -22,41 +22,41 @@ public abstract class LocalizationTechnique {
 	}
 	
 
-	public int getPassed() {
+	public double getPassed() {
 		return passed;
 	}
 
 
 
-	public void setPassed(int passed) {
+	public void setPassed(double passed) {
 		this.passed = passed;
 	}
 
 
 
-	public int getFailed() {
+	public double getFailed() {
 		return failed;
 	}
 
 
 
-	public void setFailed(int failed) {
+	public void setFailed(double failed) {
 		this.failed = failed;
 	}
 
 
 
-	public int getTotalPassed() {
+	public double getTotalPassed() {
 		return totalPassed;
 	}
 
 
-	public void setTotalPassed(int totalPassed) {
+	public void setTotalPassed(double totalPassed) {
 		this.totalPassed = totalPassed;
 	}
 
 
-	public int getTotalFailed() {
+	public double getTotalFailed() {
 		return totalFailed;
 	}
 

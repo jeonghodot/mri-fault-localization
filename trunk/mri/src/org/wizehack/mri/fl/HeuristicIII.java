@@ -2,20 +2,20 @@ package org.wizehack.mri.fl;
 
 public class HeuristicIII extends LocalizationTechnique{
 
-	public HeuristicIII(int totalPassed, int totalFailed, String techniqueName) {
+	public HeuristicIII(double totalPassed, double totalFailed, String techniqueName) {
 		super(totalPassed, totalFailed, techniqueName);
 	}
 
 	@Override
 	public double getSuspiciousness() {
 		double suspiciousness = 0;
-		int firstFailed = 0;
-		int secondFailed = 0;
-		int thiredFailed = 0;
+		double firstFailed = 0;
+		double secondFailed = 0;
+		double thiredFailed = 0;
 		
-		int firstPassed = 0;
-		int secondPassed = 0;
-		int thiredPassed = 0;
+		double firstPassed = 0;
+		double secondPassed = 0;
+		double thiredPassed = 0;
 		
 		double a=0.001;
 		double firstWeight = 1;

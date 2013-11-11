@@ -11,7 +11,7 @@ public class Tarantula extends LocalizationTechnique {
 	public double getSuspiciousness() {
 		double suspiciousness = 0;
 		double numerator = 0;
-		
+				
 		if(super.getTotalFailed() == 0){
 			return 0;
 		} else if(super.getTotalPassed() == 0) {
@@ -26,6 +26,9 @@ public class Tarantula extends LocalizationTechnique {
 				suspiciousness = ((double)super.getFailed()/(double)super.getTotalFailed()) / (double)numerator;
 			}
 		}
+//		System.out.println("totalPassed: " + super.getTotalPassed() + " totalFailed: " + 
+//		super.getTotalFailed() + " passed: " + super.getPassed() + " failed: " + super.getFailed() + " suspiciousness: " + suspiciousness);
+
 		return suspiciousness;
 	}
 	
