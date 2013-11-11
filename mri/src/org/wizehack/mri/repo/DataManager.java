@@ -46,6 +46,18 @@ public class DataManager {
 		try {
 			mongo = mongoManager.getConnection();
 			DB db = mongo.getDB(DB_NAME);
+			DBCollection testColl = db.getCollection(TEST_RESULT);
+			DBCollection covColl = db.getCollection(COVERAGE);
+			DBCollection codeColl = db.getCollection(CODE);
+			DBCollection statColl = db.getCollection(STATISTICS);
+			DBCollection flColl = db.getCollection(FAULT_LOCALIZATION);
+			
+			testColl.drop();
+			covColl.drop();
+			codeColl.drop();
+			statColl.drop();
+			flColl.drop();
+			
 			db.dropDatabase();
 		} finally {
 			mongoManager.closeConnection(mongo);
@@ -106,20 +118,34 @@ public class DataManager {
 	public double getStatementId(String sourceFile, int lineNumber){
 		double id=0;
 		Mongo mongo = null;
-
+		DBObject obj = null;
+		BasicDBObject query = null;
+		DBCollection coll = null;
+		
 		try{
 			mongo = mongoManager.getConnection();
 			DB db = mongo.getDB(DB_NAME);
-			DBCollection coll = db.getCollection(CODE);
+			coll = db.getCollection(CODE);
 
-			BasicDBObject query = new BasicDBObject("file", sourceFile).
+			query = new BasicDBObject("file", sourceFile).
 	                append("lineNumber", lineNumber);
-			DBObject obj = coll.findOne(query);
+			obj = coll.findOne(query);
+			while(obj == null){
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.println("getting statementId....failed.....retrying...");
+				obj = coll.findOne(query);
+//				id = (double) obj.get("statementId"); 
+			}
 			id = (double) obj.get("statementId"); 
+//			System.out.println("id: " + id);
 		} finally {
 			mongoManager.closeConnection(mongo);
 		}
-		
 		return id;
 	}
 	
@@ -155,9 +181,7 @@ public class DataManager {
 					+ "var value = {"
 						+ "file: this.file,"
 						+ "line_number: this.lineNumber,"
-						+ "isPassed: this.isPassed,"
-						+ "passed: 1,"
-						+ "failed: 1"
+						+ "isPassed: this.isPassed"
 						+ "};"
 						+ "emit( key, value );"
 					+ "};";
@@ -173,9 +197,9 @@ public class DataManager {
 					+ "reducedObject.file = value.file,"
 					+ "reducedObject.line_number = value.line_number;"
 					+ "if(value.isPassed == true){"
-						+ "reducedObject.passed += value.passed;"
+						+ "reducedObject.passed = reducedObject.passed + 1;"
 					+ "} else {"
-						+ "reducedObject.failed += value.failed;"
+						+ "reducedObject.failed = reducedObject.failed + 1;"
 						+ "}"
 					+ "}"
 				+ ");"
@@ -257,8 +281,24 @@ public class DataManager {
 				DBObject dbObject = (DBObject) cursor.next();			
 				double statementId = (double) dbObject.get("_id");
 				DBObject value = (DBObject) dbObject.get("value");
-				double passed = (double) value.get("passed");
-				double failed = (double) value.get("failed");
+				double passed;
+				double failed;
+				
+				try {
+					passed = (double) value.get("passed");
+					failed = (double) value.get("failed");
+				} catch (NullPointerException ne) {
+					
+					if(value.get("isPassed").toString().matches("true")){
+						passed = 1;
+						failed = 0;
+						
+					} else {
+						passed = 0;
+						failed = 1;
+//						System.out.println("isPassed: false" + statementId);
+					}
+				}
 				Spectrum spectrum = new Spectrum((int)statementId, (int)passed, (int)failed);
 				spectrumList.add(spectrum);
 			}

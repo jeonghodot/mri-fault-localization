@@ -94,19 +94,8 @@ public class CoverageFileReader {
 					for(int k=0; k<covList.size(); k++){
 						Coverage cov = covList.get(k);
 						double statementId=0;
-						try {
-							statementId = dManager.getStatementId(cov.getFile(), cov.getNumber());
-						} catch (NullPointerException e1){
-							e1.printStackTrace();
-							k--;
-							try {
-								Thread.sleep(10);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							continue;
-						}
+						statementId = dManager.getStatementId(cov.getFile(), cov.getNumber());
+
 						cov.setStatementId(statementId);
 						coverageList.add(cov);
 					}// for k					

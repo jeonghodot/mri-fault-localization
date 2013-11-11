@@ -57,6 +57,13 @@ public abstract class SFL {
 		
 		System.out.println("Inserting code to repository ");
 		dManager.insertCode(statements);
+		try {
+			Thread.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Completed ");
 		return dManager;
 	}
 	
@@ -139,9 +146,9 @@ public abstract class SFL {
 		FileIO fileIO = new FileIO();
 		fileIO.setOutFile(expFile);
 		
-		char seperator = '\t';
+		char seperator = ';';
 		String column = "id" +seperator+ "file" +seperator+ "line"+seperator+
-				"suspciciousness"+seperator+"statement" ;
+				"suspciciousness"+seperator+"statement";
 		doc.add(column);
 		
 		for(int i=0; i<results.size(); i++) {
@@ -150,11 +157,12 @@ public abstract class SFL {
 			String file = result.getFile();
 			String line = result.getLine();
 			String suspiciousness = result.getSuspiciousness();
-			String statement = result.getStatement().replace('\t', '\0');
-			
+			String statement = result.getStatement();
+//			String statement = result.getStatement().replace("\t", "");
+
 			String fields = id + seperator + file + seperator + line + seperator + 
 					suspiciousness + seperator + statement;
-			
+//			System.out.println(fields);
 			doc.add(fields);
 		}
 		fileIO.write(doc);
