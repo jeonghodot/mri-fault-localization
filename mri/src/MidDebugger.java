@@ -2,6 +2,7 @@ import java.io.File;
 import java.util.List;
 
 import org.wizehack.mri.SFL;
+import org.wizehack.mri.CoverageDataParser.CoverageFileReader;
 import org.wizehack.mri.Test.Group;
 import org.wizehack.mri.Test.TestCase;
 import org.wizehack.mri.Test.TestSuite;
@@ -20,7 +21,7 @@ public class MidDebugger extends SFL{
 
 	public static void main(String[] args) {
 		String pName = "Mid_Debug";
-		String expFile = "/home/wizehack/develop/workspace/Mid/Report/report.csv";
+		String expFile = "/home/wizehack/exp/report/Mid/report.csv";
 		String ip = "127.0.0.1";
 		String projectPath = "/home/wizehack/develop/workspace/Mid";
 		LocalizationTechnique tarantula = new Tarantula(5,1,"tarantula");
@@ -40,11 +41,12 @@ public class MidDebugger extends SFL{
 		fileListReader.setExtensionType("xml");
 		
 		List<String> fList = fileListReader.readFiles(new File(covDir));
+		CoverageFileReader cfr = new CoverageFileReader();
 		
 		for(int i=0; i<fList.size(); i++){
 			
 			String name = fList.get(i);
-			name = super.getCoverageFileName(name);
+			name = cfr.getCoverageFileName(name);
 			
 			int tcId = new Integer(name);
 			TestCase testCase = new TestCase();

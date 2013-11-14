@@ -157,24 +157,16 @@ public abstract class SFL {
 			String file = result.getFile();
 			String line = result.getLine();
 			String suspiciousness = result.getSuspiciousness();
-			String statement = result.getStatement();
-//			String statement = result.getStatement().replace("\t", "");
+//			String statement = result.getStatement();
+			String statement = result.getStatement().replace("\t", "");
 
 			String fields = id + seperator + file + seperator + line + seperator + 
 					suspiciousness + seperator + statement;
-//			System.out.println(fields);
+			System.out.println(fields);
 			doc.add(fields);
 		}
 		fileIO.write(doc);
 	}
 
 
-	public String getCoverageFileName(String filePath) {
-		int start = filePath.lastIndexOf("/");
-		start = start+1;
-		int end = filePath.lastIndexOf(".xml");
-
-		String name = filePath.substring(start, end);
-		return name;
-	}
 }

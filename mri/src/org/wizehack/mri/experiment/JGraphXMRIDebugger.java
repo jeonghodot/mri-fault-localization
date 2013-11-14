@@ -2,7 +2,7 @@ package org.wizehack.mri.experiment;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.wizehack.mri.fl.WizeFLII;
+import org.wizehack.mri.fl.MRI_I;
 import org.wizehack.mri.repo.DataManager;
 import org.wizehack.mri.repo.Result;
 
@@ -32,7 +32,7 @@ public class JGraphXMRIDebugger {
 	}
 	
 	private static void mri_Dstar_55() {
-		WizeFLII wizeFlII = new WizeFLII("dstar", 8);
+		MRI_I wizeFlII = new MRI_I("dstar", 8);
 		
 		String db_55_1 = "CodeTest_Dstar_55_1";
 		String db_55_2 = "CodeTest_Dstar_55_2";
@@ -155,7 +155,7 @@ public class JGraphXMRIDebugger {
 	}
 
 	private static void mri_Dstar_40() {
-		WizeFLII wizeFlII = new WizeFLII("dstar", 7);
+		MRI_I wizeFlII = new MRI_I("dstar", 7);
 
 		String db_40_1 = "CodeTest_Dstar_40_1";
 		String db_40_2 = "CodeTest_Dstar_40_2";
@@ -267,7 +267,7 @@ public class JGraphXMRIDebugger {
 	}
 
 	private static void mri_Dstar_35() {
-		WizeFLII wizeFlII = new WizeFLII("dstar", 3);
+		MRI_I wizeFlII = new MRI_I("dstar", 3);
 
 		String db_35_1 = "CodeTest_Dstar_35_1";
 		String db_35_2 = "CodeTest_Dstar_35_2";
@@ -340,7 +340,7 @@ public class JGraphXMRIDebugger {
 	}
 
 	private static void mri_tarantula_55() {
-		WizeFLII wizeFlII = new WizeFLII("tarantula", 8);
+		MRI_I wizeFlII = new MRI_I("tarantula", 8);
 
 		String db_55_1 = "CodeTest_Tarantula_55_1";
 		String db_55_2 = "CodeTest_Tarantula_55_2";
@@ -462,7 +462,7 @@ public class JGraphXMRIDebugger {
 	}
 	
 	private static void mri_tarantula_40() {
-		WizeFLII wizeFlII = new WizeFLII("tarantula", 7);
+		MRI_I wizeFlII = new MRI_I("tarantula", 7);
 
 		String db_40_1 = "CodeTest_Tarantula_40_1";
 		String db_40_2 = "CodeTest_Tarantula_40_2";
@@ -575,7 +575,7 @@ public class JGraphXMRIDebugger {
 	}
 	
 	private static void mri_tarantula_35() {
-		WizeFLII wizeFlII = new WizeFLII("tarantula", 3);
+		MRI_I wizeFlII = new MRI_I("tarantula", 3);
 
 		String db_35_1 = "CodeTest_Tarantula_35_1";
 		String db_35_2 = "CodeTest_Tarantula_35_2";

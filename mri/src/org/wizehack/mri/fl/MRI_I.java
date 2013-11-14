@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.wizehack.mri.repo.Result;
 
-public class WizeFLII {
+public class MRI_I {
 	private LocalizationTechnique flTechnique = null;
 	private int numberOfGroups;
 	
-	public WizeFLII(String name, int numberOfGroups) {
+	public MRI_I(String name, int numberOfGroups) {
 		super();
 //		this.flTechnique = flTechnique;
 		this.numberOfGroups = numberOfGroups;

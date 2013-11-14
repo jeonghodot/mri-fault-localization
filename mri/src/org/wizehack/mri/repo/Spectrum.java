@@ -2,10 +2,10 @@ package org.wizehack.mri.repo;
 
 public class Spectrum {
 	private double statementId;
-	private int passed;
-	private int failed;
+	private double passed;
+	private double failed;
 	
-	public Spectrum(double statementId, int passed, int failed) {
+	public Spectrum(double statementId, double passed, double failed) {
 		this.statementId = statementId;
 		this.passed = passed;
 		this.failed = failed;
@@ -19,19 +19,19 @@ public class Spectrum {
 		this.statementId = statementId;
 	}
 
-	public int getPassed() {
+	public double getPassed() {
 		return passed;
 	}
 
-	public void setPassed(int passed) {
+	public void setPassed(double passed) {
 		this.passed = passed;
 	}
 
-	public int getFailed() {
+	public double getFailed() {
 		return failed;
 	}
 
-	public void setFailed(int failed) {
+	public void setFailed(double failed) {
 		this.failed = failed;
 	}
 	

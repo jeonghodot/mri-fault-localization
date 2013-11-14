@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.wizehack.mri.Test.TestCase;
+import org.wizehack.mri.Test.TestCaseWeight;
 import org.wizehack.mri.io.FileIO;
 
 import com.mongodb.BasicDBObject;
@@ -520,6 +521,38 @@ public class DataManager {
 		}
 		
 		return resultList;
+	}
+
+	public void updateWeight(List<TestCaseWeight> weightList) {
+		Mongo mongo = null;
+		
+		try {
+			mongo = mongoManager.getConnection();
+			DB db = mongo.getDB(DB_NAME);
+			
+			DBCollection coll = db.getCollection(COVERAGE);
+			
+			int tcId = 0;
+			double weight = 0;
+			for(int i=0; i<weightList.size(); i++){
+				tcId = weightList.get(i).getTestCaseId();
+				weight = weightList.get(i).getWeight();
+				
+				BasicDBObject query = new BasicDBObject("tcId", tcId);
+				BasicDBObject newDocument = new BasicDBObject();
+				newDocument.put("weight", weight);
+			  
+				BasicDBObject updateObj = new BasicDBObject();
+				updateObj.put("$set", newDocument);
+			  
+				coll.update(query, updateObj, false, true);
+			}
+			
+
+		} finally {
+			mongoManager.closeConnection(mongo);
+		}
+		
 	}
 
 	

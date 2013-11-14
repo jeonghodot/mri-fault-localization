@@ -4,12 +4,13 @@ import java.io.File;
 import java.util.List;
 
 import org.wizehack.mri.SFL;
+import org.wizehack.mri.CoverageDataParser.CoverageFileReader;
 import org.wizehack.mri.Test.Group;
 import org.wizehack.mri.Test.TestCase;
 import org.wizehack.mri.Test.TestSuite;
 import org.wizehack.mri.fl.LocalizationTechnique;
 import org.wizehack.mri.fl.Tarantula;
-import org.wizehack.mri.fl.WizeFLII;
+import org.wizehack.mri.fl.MRI_I;
 import org.wizehack.mri.io.FileListReader;
 import org.wizehack.mri.repo.DataManager;
 import org.wizehack.mri.repo.Result;
@@ -77,11 +78,12 @@ public class Crawler4jMRIDebugger extends SFL {
 		fileListReader.setExtensionType("xml");
 		
 		List<String> fList = fileListReader.readFiles(new File(covDir));
+		CoverageFileReader cfr = new CoverageFileReader();
 
 		for(int i=0; i<fList.size(); i++){
 
 			String name = fList.get(i);
-			name = super.getCoverageFileName(name);
+			name = cfr.getCoverageFileName(name);
 			
 			int tcId = new Integer(name);
 			TestCase testCase = new TestCase();
@@ -122,7 +124,7 @@ public class Crawler4jMRIDebugger extends SFL {
 	}
 	
 	private static void mri_30(int numberOfTestGroup){
-		WizeFLII wizeFlII = new WizeFLII("tarantula", 2);
+		MRI_I wizeFlII = new MRI_I("tarantula", 2);
 
 		String db_30_1 = "CodeTest_Tarantula_30_1";
 		String db_30_2 = "CodeTest_Tarantula_30_2";		
@@ -172,7 +174,7 @@ public class Crawler4jMRIDebugger extends SFL {
 	}
 	
 	private static void mri_50(int numberOfTestGroup){
-		WizeFLII wizeFlII = new WizeFLII("tarantula", 3);
+		MRI_I wizeFlII = new MRI_I("tarantula", 3);
 
 		String db_50_1 = "CodeTest_Tarantula_50_1";
 		String db_50_2 = "CodeTest_Tarantula_50_2";		
@@ -234,7 +236,7 @@ public class Crawler4jMRIDebugger extends SFL {
 	}
 	
 	private static void mri_60(int numberOfTestGroup) {
-		WizeFLII wizeFlII = new WizeFLII("tarantula", 5);
+		MRI_I wizeFlII = new MRI_I("tarantula", 5);
 
 		String db_60_1 = "CodeTest_Tarantula_60_1";
 		String db_60_2 = "CodeTest_Tarantula_60_2";		
@@ -319,7 +321,7 @@ public class Crawler4jMRIDebugger extends SFL {
 	}
 	
 	private static void mri_75(int numberOfTestGroup){
-		WizeFLII wizeFlII = new WizeFLII("tarantula", 7);
+		MRI_I wizeFlII = new MRI_I("tarantula", 7);
 
 		String db_75_1 = "CodeTest_Tarantula_75_1";
 		String db_75_2 = "CodeTest_Tarantula_75_2";		

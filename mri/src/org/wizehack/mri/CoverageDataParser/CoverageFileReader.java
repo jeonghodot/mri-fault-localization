@@ -27,6 +27,10 @@ public class CoverageFileReader {
 		this.dManager = dManager;
 	}
 	
+	public CoverageFileReader(){
+		
+	}
+	
 	public String getSourceFolder() {
 		return sourceFolder;
 	}
@@ -133,6 +137,16 @@ public class CoverageFileReader {
 		}// end for i
 		
 		return coverageList;
+	}
+	
+
+	public String getCoverageFileName(String filePath) {
+		int start = filePath.lastIndexOf("/");
+		start = start+1;
+		int end = filePath.lastIndexOf(".xml");
+
+		String name = filePath.substring(start, end);
+		return name;
 	}
 	
 	/*

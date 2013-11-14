@@ -5,6 +5,7 @@ import java.io.File;
 import java.util.List;
 
 import org.wizehack.mri.SFL;
+import org.wizehack.mri.CoverageDataParser.CoverageFileReader;
 import org.wizehack.mri.Test.Group;
 import org.wizehack.mri.Test.TestCase;
 import org.wizehack.mri.Test.TestSuite;
@@ -123,11 +124,12 @@ public class JGraphXDebugger extends SFL{
 		fileListReader.setExtensionType("xml");
 		
 		List<String> fList = fileListReader.readFiles(new File(covDir));
+		CoverageFileReader cfr = new CoverageFileReader();
 
 		for(int i=0; i<fList.size(); i++){
 
 			String name = fList.get(i);
-			name = super.getCoverageFileName(name);
+			name = cfr.getCoverageFileName(name);
 			
 			int tcId = new Integer(name);
 			TestCase testCase = new TestCase();
